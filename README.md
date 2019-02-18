@@ -12,17 +12,6 @@ Matte paper, gloss paper, canvas, custom request
 Purchased a printer already
 
 
-Now here is the same request handler written using Express:
-```javascript
-app.get('/listings', function(req, res) {
-  res.send(listingData);
-});
-
-app.all('/*', function(req, res) {
-  res.status(404).send('Bad gateway error');
-});
-```
-
 ## Design Ideas:
 Trees
 High contrast, uncluttered
