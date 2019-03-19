@@ -9,7 +9,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.navbar-nav {
+.navlinks {
     float:right;
 }
 
@@ -18,15 +18,14 @@ body {
     font-size:12px;
 }
 
-
-.nav a {
+.navlinks a {
     position: relative;
     color: #c1c1c1;
     text-decoration: none;
     padding:0px;
 }
 
-.nav a:before {
+.navlinks a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -41,13 +40,13 @@ body {
     transition: all 0.3s ease-in-out 0s;
 }
 
-.nav a:hover:before {
+.navlinks a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
-.navbar-brand {
+.brandname {
     font-family: "bianca";
     font-size:30px;
     padding:10px 20px;
@@ -66,30 +65,8 @@ body {
     margin-top:100px;
 }
 
-.cards {
-    margin: auto;
-    width: 75%;
-    text-align: center;
-    margin-top:-180px;
-    vertical-align: top;
-    
-}
-
-.card {
-    width:300px;
-    height:280px;
-    background-color:#f7f7f7;
-    padding:20px;
-    border:1px solid #ededed;
-    display:inline-block;
-    vertical-align: top;
-}
-
-.card-title {
-    font-family: 'Lato', sans-serif;
-    font-size:28px;
-    margin-top:0px;
-    font-weight:300;
+.panelheight {
+    min-height:300px;
 }
 
 .page {
