@@ -39,6 +39,7 @@
             <button class="btn btn-primary" ng-click="addListing()">Add Listing</button>
           </form>
         </div>
+<<<<<<< Updated upstream
         <div class="col-md-6">
           <div class="jumbotron">
             <h2>Detailed Information</h2>
@@ -48,6 +49,28 @@
               <h4 class="lead"><strong>Longitude:</strong> {{detailedInfo.coordinates.longitude}}</h4>
               <h4 class="lead"><strong>Address:</strong> {{detailedInfo.address}}</h4>
           </div>
+=======
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Upload Your File</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <!-- pay pal link -->
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="WZLAL4N9VUVRC">
+              <input type="hidden" name="on0" value="Size">Size<br>
+              <select name="os0">
+              <option value="Small">Small $1,000,000.00 USD</option>
+              <option value="Medium">Medium $2,000,000.00 USD</option>
+              <option value="Large">Large $3,000,000.00 USD</option>
+              </select> 
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          </form>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>
