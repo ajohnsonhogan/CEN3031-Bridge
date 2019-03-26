@@ -44,6 +44,8 @@ module.exports.init = function() {
     //return response.redirect('/');
     //next();
   //});
+app.use(passport.initialize());
+app.use('/api', routesApi);
   
   return app;
 };  
