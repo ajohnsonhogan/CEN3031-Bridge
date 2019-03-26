@@ -15,54 +15,56 @@
     <link rel="stylesheet" href="styles/main.css">
     
   </head>
-  <body ng-app="directoryApp">
+  <body>
 
     <!-- nav bar -->
     <div id="nav-placeholder">
     </div>
     
-    
-    
-    <div class="cards">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Choose Your Medium</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="container" style="width:75%">
+      <div class="row" style="margin-top:-200px">
+        <div class="col-md-4">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Choose Your Medium</div>
+            <div class="panel-body text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Choose Your Size</div>
+            <div class="panel-body text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
+          </div>
+        </div>
+<<<<<<< HEAD
       </div>
       
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Choose Your Size</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        <div class="col-md-4">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Upload Your File</div>
+            <div class="panel-body text-center">
+              <!-- pay pal link -->
+              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="PTGPZRVRZKSBJ">
+                <table>
+                  <tr><td><input type="hidden" name="on0" value="Image Sizes">Image Sizes</td></tr><tr><td><select name="os0">
+                  <option value="Small">Small $1,000.00 USD</option>
+                  <option value="Medium">Medium $2,000.00 USD</option>
+                  <option value="Large">Large $3,000.00 USD</option>
+                  </select> </td></tr>
+                </table>
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </div>
+          </div>
+>>>>>>> 66c7d89428eeb526b6d993df5cd4eb2b2c9af973
         </div>
       </div>
-      
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Upload Your File</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <!-- pay pal link -->
-            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="PTGPZRVRZKSBJ">
-				<table>
-					<tr><td><input type="hidden" name="on0" value="Image Sizes">Image Sizes</td></tr><tr><td><select name="os0">
-						<option value="Small">Small $1,000.00 USD</option>
-						<option value="Medium">Medium $2,000.00 USD</option>
-						<option value="Large">Large $3,000.00 USD</option>
-						</select> </td></tr>
-						</table>
-						<input type="hidden" name="currency_code" value="USD">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			</form>
-        </div>
-      </div>
-    </div>
-    
+    </div>  
+  
     <!-- javascript files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
