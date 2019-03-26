@@ -51,6 +51,8 @@ $.get("nav.html", function(data){
 
       function getPrice() {
         $("#overallPrice").html(sizePrice + mediumPrice);
+        sizePrice=0;
+        mediumPrice=0;
       }
 
       $("#getPrice").click(function() {
