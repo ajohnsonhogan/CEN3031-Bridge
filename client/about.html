@@ -11,8 +11,9 @@
         <!-- bootstrap style sheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-        <!-- in file style sheet -->
+        <!-- in file style sheets -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/about.css">
 
     </head>
     <body ng-app="directoryApp">
@@ -21,22 +22,28 @@
         <div id="nav-placeholder">
         </div>
 
-        
-        <div class="page">
-            <h1>About Peetree's Prints</h1>
-        </div>
-        
-        
-        
-        
+        <div class="container" style="width:75%">
+            <div class="row" style="margin-top:-350px">
+                <div class="panel panel-default panelheight">
+                    <div class="panel-heading">About Peetree Prints</div>
+                    <div class="panel-body">
+                        <img src="https://via.placeholder.com/400x500.png" class="aboutimg">  
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit pellentesque. Diam ut venenatis tellus in metus vulputate eu scelerisque felis. Ultricies mi eget mauris pharetra. Nisl nisi scelerisque eu ultrices. Urna et pharetra pharetra massa massa. Turpis cursus in hac habitasse platea. Aliquam vestibulum morbi blandit cursus risus. Dictum at tempor commodo ullamcorper a. Faucibus ornare suspendisse sed nisi lacus sed.
+                        </p>
 
+                        <p>Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Mi quis hendrerit dolor magna eget. Etiam tempor orci eu lobortis elementum nibh. Velit scelerisque in dictum non. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Sagittis vitae et leo duis ut. Nisi est sit amet facilisis magna etiam tempor orci. Vel pharetra vel turpis nunc eget lorem dolor. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Nulla facilisi cras fermentum odio eu feugiat pretium. Tempus quam pellentesque nec nam aliquam sem. Enim lobortis scelerisque fermentum dui. Adipiscing enim eu turpis egestas pretium aenean pharetra. Interdum velit laoreet id donec. Quis risus sed vulputate odio ut enim blandit volutpat.</p>
+
+                        <p>Justo eget magna fermentum iaculis eu non diam. Lorem ipsum dolor sit amet consectetur adipiscing elit duis. Vitae turpis massa sed elementum. Et netus et malesuada fames ac turpis. Tincidunt nunc pulvinar sapien et. Id interdum velit laoreet id donec ultrices tincidunt arcu non. In hac habitasse platea dictumst quisque. Tortor vitae purus faucibus ornare. Scelerisque felis imperdiet proin fermentum leo vel orci porta. Odio euismod lacinia at quis risus sed. Arcu vitae elementum curabitur vitae nunc sed velit. Consequat semper viverra nam libero justo laoreet sit amet cursus. Vulputate mi sit amet mauris commodo quis. Cursus sit amet dictum sit amet justo. Malesuada proin libero nunc consequat. Facilisis leo vel fringilla est ullamcorper eget nulla. Iaculis at erat pellentesque adipiscing commodo. Lectus urna duis convallis convallis tellus id interdum velit. Platea dictumst quisque sagittis purus sit amet volutpat consequat.</p>
+                    </div>
+                </div>
+            </div>
+    
         <!-- javascript files-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-        <script>
-            $.get("nav.html", function(data){
-                $("#nav-placeholder").replaceWith(data);
-            });
-        </script>
+        <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="controllers/listingController.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
