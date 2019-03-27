@@ -1,4 +1,14 @@
-angular.module('listings').controller('ListingsController', ['$scope', '$window','Listings', 
+app.controller('sizeController', function() {
+    var vm = this;
+    vm.occurrenceOptions = [];
+
+    vm.occurrenceOptions.push('small');
+    vm.occurrenceOptions.push('medium');
+    vm.occurrenceOptions.push('large');
+
+    vm.selectedOccurrence = 'small';
+});
+/*angular.module('listings').controller('ListingsController', ['$scope', '$window','Listings', 
   function($scope, $window,Listings) {
     Listings.getAll().then(function(response) {
       $scope.listings = response.data;
@@ -25,4 +35,4 @@ angular.module('listings').controller('ListingsController', ['$scope', '$window'
       $scope.detailedInfo = $scope.listings[index];
     };
   }
-]);
+]);*/ 

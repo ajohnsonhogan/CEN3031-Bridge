@@ -14,7 +14,8 @@
 
     <!-- in file style sheet -->
     <link rel="stylesheet" href="styles/main.css">
-  </head>  <body ng-app="peetreeApp">
+  </head>
+  <body ng-app="petreeApp">
 
     <!-- nav bar -->
     <div id="nav-placeholder">
@@ -43,15 +44,14 @@
             <div class="panel-heading text-center">Choose Your Size</div>
             <div class="panel-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <form>
-                  <input type="radio" ng-model="picSize" value="Small" name="picSize" class="form-radio"> <label>Small</label><br>
-                  <input type="radio" ng-model="picSize" value="Medium" name="picSize" class="form-radio"> <label>Medium</label><br>
-                  <input type="radio" ng-model="picSize" value="Large" name="picSize" class="form-radio"> <label>Large</label><br>
-                  <input type="radio" value="Other" name="picSize" class="form-radio"> <label>Other
-                  <a href="#" data-toggle="popover" data-placement="top" title="Other Size Options" data-content="If you choose other, your price will not reflect it's true value."><i class="fas fa-info-circle"></i></a>
-                  </label>
-                  <input type="text" ng-model="picSize" id="sizeText">
-                </form>
+                <form ng-controller="sizeController as vm">
+                
+                    <div ng-repeat="option in vm.occurrenceOptions">
+                      <input type="radio" name="occurrence" ng-value="option" ng-model="vm.selectedOccurrence" />
+                      <label>{{ option }}</label>
+                    </div>
+                  </form>
+                  <div>The selected value is : {{ vm.selectedOccurrence }}</div>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="controllers/listingController.js"></script>
+    <script src="controllers/petreeController.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
