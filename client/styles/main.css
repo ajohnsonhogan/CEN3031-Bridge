@@ -20,6 +20,7 @@ body {
 .navbar-nav a {
     font-size:16px;
     font-weight:300;
+    text-align: center;
 }
 
 
@@ -71,14 +72,6 @@ body {
     margin-top:100px;
 }
 
-.cards {
-    margin: auto;
-    width: 75%;
-    text-align: center;
-    margin-top:-180px;
-    vertical-align: top;
-}
-
 .card {
     width:300px;
     height:280px;
@@ -113,7 +106,7 @@ body {
 
 
 #card {
-    max-width:500px;
+    /* max-width:500px; */
     margin: auto;
 }
 
@@ -162,8 +155,10 @@ body {
 
 /* Links inside the dropdown */
 .dropdown-content a {
+    text-align: justify;
+    font-size: 12px;
     color: black;
-    padding: 12px 16px;
+    padding: 12px 8px;
     text-decoration: none;
     display: block;
   }
