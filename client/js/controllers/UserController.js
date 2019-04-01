@@ -1,43 +1,85 @@
-module.exports.register = function(req, res) {
-  var user = new User();
+var config = require('config.json');
+var express = require('express');
+var router = express.Router();
+var userService = require('services/user.service');
 
-  user.name = req.body.name;
-  user.email = req.body.email;
+// routes
+router.post('/authenticate', authenticateUser);
+router.post('/register', registerUser);
+router.get('/current', getCurrentUser);
+router.put('/:_id', updateUser);
+router.delete('/:_id', deleteUser);
 
-  user.setPassword(req.body.password);
+module.exports = router;
 
-  user.save(function(err) {
-    var token;
-    token = user.generateJwt();
-    res.status(200);
-    res.json({
-      "token" : token
-    });
-  });
-};
+function authenticateUser(req, res) {
+    userService.authenticate(req.body.username, req.body.password)
+        .then(function (token) {
+            if (token) {
+                // authentication successful
+                res.send({ token: token });
+            } else {
+                // authentication failed
+                res.status(401).send('Username or password is incorrect');
+            }
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 
-module.exports.login = function(req, res) {
+function registerUser(req, res) {
+    userService.create(req.body)
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 
-  passport.authenticate('local', function(err, user, info){
-    var token;
+function getCurrentUser(req, res) {
+    userService.getById(req.user.sub)
+        .then(function (user) {
+            if (user) {
+                res.send(user);
+            } else {
+                res.sendStatus(404);
+            }
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 
-    // If Passport throws/catches an error
-    if (err) {
-      res.status(404).json(err);
-      return;
+function updateUser(req, res) {
+    var userId = req.user.sub;
+    if (req.params._id !== userId) {
+        // can only update own account
+        return res.status(401).send('You can only update your own account');
     }
 
-    // If a user is found
-    if(user){
-      token = user.generateJwt();
-      res.status(200);
-      res.json({
-        "token" : token
-      });
-    } else {
-      // If user is not found
-      res.status(401).json(info);
-    }
-  })(req, res);
+    userService.update(userId, req.body)
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 
-};
+function deleteUser(req, res) {
+    var userId = req.user.sub;
+    if (req.params._id !== userId) {
+        // can only delete own account
+        return res.status(401).send('You can only delete your own account');
+    }
+
+    userService.delete(userId)
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}

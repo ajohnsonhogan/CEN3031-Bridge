@@ -33,10 +33,6 @@ module.exports.init = function() {
   app.use(express.static('client'));
 
   /**TODO 
-  Use the listings router for requests to the api */
-  app.use('/api/listings', listingsRouter);
-
-  /**TODO 
   Go to homepage for all routes not specified */ 
     //app.use(function(request, response, next){
     app.use('/', express.static('client/index.html'));
@@ -44,8 +40,8 @@ module.exports.init = function() {
     //return response.redirect('/');
     //next();
   //});
-app.use(passport.initialize());
-app.use('/api', routesApi);
+require('./api/models/SchemaAccount');
+require('./api/config/passportConf');
   
   return app;
 };  

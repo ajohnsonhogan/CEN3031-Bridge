@@ -20,36 +20,41 @@
         <!-- nav bar -->
         <div id="nav-placeholder">
         </div>
-
-
-        <div class="page">
-            <h1>My Account</h1>
+<div class="page">
+            <h1>Register</h1>
 			<form action="action_page.php">
   <div class="container">
-    <h1>Sign In</h1>
-    <hr>
- <div class="form-group">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email"[(ngModel)]="credentials.name" required>
- <div class="form-group">
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw"[(ngModel)]="credentials.name" required>
+  
+<form (submit)="register()">
+  <div class="form-group">
+    <label for="name">Full name</label>
+    <input type="text" placeholder="Enter your name" name="name"[(ngModel)]="credentials.name" required>
+ 
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" name="email" placeholder="Enter email" [(ngModel)]="credentials.email" required>
+ 
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Password" [(ngModel)]="credentials.password" required>
+  
+  <div class="form-group">
+    <label for="password">Confirm Password</label>
+    <input type="password" name="password" placeholder="Password" [(ngModel)]="credentials.confirmpassword" required>
+	
+  <button type="submit" class="btn btn-default"(click)="ngOnInit()">Register!</button>
 
 
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
 
-    <button type="submit" class="registerbtn"><a href="./profile.html" >login</button> </a></p>
-  </div>
-
-  <div class="container Log in">
-    <p>Don't have an account? <a href="./Register.html"(click)="moveToRegister()" >Register</button></a></p>
+<div class="container Log in">
+    <p>Already have an account? <a href="./account.html"(click)="moveToRegister()">Login</a></p>
   </div>
 </form>
-        </div>
 
+ </div>
 
-
-
-        <!-- javascript files-->
+  <!-- javascript files-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         <script>

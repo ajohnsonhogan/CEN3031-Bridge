@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
+//var jwt = require('jsonwebtoken');
 var crypto = require('crypto');
+
 var UserSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -18,7 +19,7 @@ var UserSchema = new mongoose.Schema({
   salt: String
   }
 });
-//Randonize the user input requirements
+//Randomized the user input 
 UserSchema.methods.setPassword = function(password){
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
@@ -41,6 +42,11 @@ var currentDate = new Date();
 var User = mongoose.model('User', UserSchema);
 module.exports = User;
 
-UserSchema.methods.generatejwt = function(){
+/*UserSchema.methods.generatejwt = function(){
 	return jwt.sign({_id: this._id});
-}
+	email: this.email,
+    name: this.name,
+    exp: parseInt(expiry.getTime() / 1000),
+	}
+	"MY_SECRET");
+*/

@@ -22,34 +22,17 @@
         </div>
 
 
-        <div class="page">
-            <h1>My Account</h1>
-			<form action="action_page.php">
-  <div class="container">
-    <h1>Sign In</h1>
-    <hr>
- <div class="form-group">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email"[(ngModel)]="credentials.name" required>
- <div class="form-group">
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw"[(ngModel)]="credentials.name" required>
-
-
-
-    <button type="submit" class="registerbtn"><a href="./profile.html" >login</button> </a></p>
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Full name</label>
+    <p class="form-control-static">Simon Powell</p>
   </div>
-
-  <div class="container Log in">
-    <p>Don't have an account? <a href="./Register.html"(click)="moveToRegister()" >Register</button></a></p>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Email</label>
+    <p class="form-control-static">simonpowell@ufl.edu</p>
   </div>
-</form>
-        </div>
-
-
-
-
-        <!-- javascript files-->
+</div>
+  <!-- javascript files-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         <script>
