@@ -71,14 +71,14 @@
             </div>
               </div>
               <div class="well" style="margin:20px">
-                You chose:<br>
+                You have selected:<br>
                 Medium: {{ model.selectedMedium }}<br>
                 Size: {{ model.selectedSize }}<br>
                 Total Price: ${{ totalPrice() }}
               </div>
 
                 <!-- pay pal link -->
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
                   <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="business" value="8JRBRT6SWAYCW">
                   <input type="hidden" name="lc" value="US">
@@ -96,7 +96,7 @@
                 </form>
 
                 <!-- VIEW CART -->
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
                   <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="business" value="8JRBRT6SWAYCW">
                   <input type="hidden" name="display" value="1">
