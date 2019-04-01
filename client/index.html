@@ -10,46 +10,73 @@
     
     <!-- bootstrap style sheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    
+
+
     <!-- in file style sheet -->
     <link rel="stylesheet" href="styles/main.css">
-    
-  </head>
-  <body ng-app="directoryApp">
+  </head>  <body ng-app="peetreeApp">
 
     <!-- nav bar -->
     <div id="nav-placeholder">
     </div>
-    
-    
-    
-    <div class="cards">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Choose Your Medium</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+ 
+    <div class="container" id="outer">
+      <div class="row vertical-centered" id="middle">
+        <div id="inner">
+        <div class="col-md-4" id="card">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Choose Your Medium</div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <form>
+                  <input type="radio" ng-model="picMedium" value="Glossy" name="picMedium" class="form-radio"> <label>Glossy</label><br>
+                  <input type="radio" ng-model="picMedium" value="Matte" name="picMedium" class="form-radio"> <label>Matte</label><br>
+                  <input type="radio" value="Other" name="picMedium" class="form-radio"> <label>Other
+                  <a href="#" data-toggle="popover" data-placement="top" title="Other Medium Options" data-content="If you choose other, your price will not reflect it's true value."><i class="fas fa-info-circle"></i></a>
+                  </label>
+                  <input type="text" ng-model="picMedium" id="mediumText">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" id="card">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Choose Your Size</div>
+            <div class="panel-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <form>
+                  <input type="radio" ng-model="picSize" value="Small" name="picSize" class="form-radio"> <label>Small</label><br>
+                  <input type="radio" ng-model="picSize" value="Medium" name="picSize" class="form-radio"> <label>Medium</label><br>
+                  <input type="radio" ng-model="picSize" value="Large" name="picSize" class="form-radio"> <label>Large</label><br>
+                  <input type="radio" value="Other" name="picSize" class="form-radio"> <label>Other
+                  <a href="#" data-toggle="popover" data-placement="top" title="Other Size Options" data-content="If you choose other, your price will not reflect it's true value."><i class="fas fa-info-circle"></i></a>
+                  </label>
+                  <input type="text" ng-model="picSize" id="sizeText">
+                </form>
+          </div>
         </div>
       </div>
-      
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Choose Your Size</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Upload Your File</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <!-- pay pal link -->
+
+        <div class="col-md-4" id="card">
+          <div class="panel panel-default panelheight">
+            <div class="panel-heading text-center">Upload Your File</div>
+            <div class="panel-body text-center">
+               <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a>
+              <input type="file" name="file" id="file" class="inputfile"/ style="width:85%;display:inline-block;">
+              <br><br>
+              Medium: {{picMedium}}<br>
+              Size: {{picSize}}
+              <br><br>
+              <form>    
+                <input id="getPrice" value="Get Price" type="button" name="test"/>
+              </form>
+              Price: $<span id="overallPrice">0</span>
+                     <!-- pay pal link -->
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="7SN4PRHTFHVH4">
 <table> 
-<!--<tr><td><input type="hidden" name="on0" value="Size">Size</td></tr><tr><td><select name="os0">
+<tr><td><input type="hidden" name="on0" value="Size">Size</td></tr><tr><td><select name="os0">
 	<option value="Small">Small $1.00 USD</option>
 	<option value="Medium">Medium $2.00 USD</option>
 	<option value="Large">Large $3.00 USD</option>
@@ -59,7 +86,7 @@
 	<option value="Glossy">Glossy </option>
 </select> </td></tr>
 <tr><td><input type="hidden" name="on2" value="Photo (Link)">Photo (Link)</td></tr><tr><td><input type="text" name="os2" maxlength="200"></td></tr>
--->
+
 
 </table>
 <input type="hidden" name="currency_code" value="USD">
@@ -73,10 +100,12 @@
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
+              </div>
+            </div>
+          </div>
 
-
-			</form>
         </div>
+    
       </div>
     </div>
     
@@ -85,13 +114,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
-    <script>
-      $.get("nav.html", function(data){
-        $("#nav-placeholder").replaceWith(data);
-      });
-    </script>
-    
+    <script src="controllers/listingController.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
