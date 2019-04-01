@@ -12,7 +12,13 @@
             <ul class="nav navbar-nav navlinks">
                 <li><a href="./">Order</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="cart.html">Cart</a></li>
+                <li><a><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="business" value="8JRBRT6SWAYCW">
+                    <input type="hidden" name="display" value="1">
+                    <input type="submit" name="submit" value="Cart">
+                    
+                </form></a></li>
                 <li class="dropdown">
                     <a href="account.html">Account</a>
                     <div class="dropdown-content">
