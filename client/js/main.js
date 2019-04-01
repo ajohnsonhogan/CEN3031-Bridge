@@ -27,11 +27,11 @@ $.get("nav.html", function(data){
 
       $('input[name="picMedium"]').click(function(f) {
         if(f.target.value === 'Matte') {
-          mediumPrice = mediumPrice + 1;
+          mediumPrice = 1;
         } if(f.target.value === 'Glossy') {
-          mediumPrice = mediumPrice + 2;
+          mediumPrice = 2;
         } if(f.target.value === 'Large') {
-          mediumPrice = mediumPrice + 3;
+          mediumPrice = 3;
         } else {
           mediumPrice = mediumPrice;
         }
@@ -39,11 +39,11 @@ $.get("nav.html", function(data){
 
       $('input[name="picSize"]').click(function(f) {
         if(f.target.value === 'Small') {
-          sizePrice = sizePrice + 1;
+          sizePrice = 1;
         } if(f.target.value === 'Medium') {
-          sizePrice = sizePrice + 2;
+          sizePrice = 2;
         } if(f.target.value === 'Large') {
-          sizePrice = sizePrice + 3;
+          sizePrice = 3;
         } else {
           sizePrice = sizePrice;
         }
@@ -51,8 +51,8 @@ $.get("nav.html", function(data){
 
       function getPrice() {
         $("#overallPrice").html(sizePrice + mediumPrice);
-        sizePrice=0;
-        mediumPrice=0;
+        //sizePrice=0;
+        //mediumPrice=0;
       }
 
       $("#getPrice").click(function() {
