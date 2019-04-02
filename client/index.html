@@ -60,15 +60,19 @@
             <div class="panel-body text-center">
               <div>
                 
-                <div class="input-group">
+                <div id="wrapper">
+					<input type="file" accept="image/*" onchange="preview_image(event)">
+					<img id="output_image"/>
+				</div>
+                <!-- <div class="input-group">
                 <label class="input-group-btn">
                     <span class="btn btn-default">
                         Browse <input type="file" style="display: none;" multiple>
-                    </span>
+                    </span> 
                 </label>
                 <input type="text" class="form-control" readonly style="width:87%">
                 <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a>
-            </div>
+            </div> -->
               </div>
               <div class="well" style="margin:20px">
                 You have selected:<br>

@@ -49,6 +49,17 @@ $.get("nav.html", function(data){
         }
       });
 
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+
       function getPrice() {
         $("#overallPrice").html(sizePrice + mediumPrice);
         //sizePrice=0;
