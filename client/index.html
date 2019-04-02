@@ -23,63 +23,62 @@
     <div class="container" id="outer" ng-controller="orderController">
       <div class="row vertical-centered" id="middle">
         <div id="inner">
-        <div class="col-md-4" id="card">
-          <div class="panel panel-default panelheight">
-            <div class="panel-heading text-center">Choose Your Medium</div>
-            <div class="panel-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <form>
+
+          <div class="col-md-4" id="card">
+            <div class="panel panel-default panelheight">
+              <div class="panel-heading text-center">Choose Your Medium</div>
+              <div class="panel-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <form>
                   <div ng-repeat="mediumOption in mediumOptions track by $index">
-                      <label>
+                    <label>
                       <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/>
-                      {{ mediumOption }}</label>
+                        {{ mediumOption }}</label>
                   </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4" id="card">
-          <div class="panel panel-default panelheight">
-            <div class="panel-heading text-center">Choose Your Size</div>
-            <div class="panel-body">
+
+          <div class="col-md-4" id="card">
+            <div class="panel panel-default panelheight">
+              <div class="panel-heading text-center">Choose Your Size</div>
+              <div class="panel-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <form>
                   <div ng-repeat="sizeOption in sizeOptions track by $index">
-                      <label>
-                        <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/>
-                      {{ sizeOption }}</label>
+                    <label>
+                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/>
+                        {{ sizeOption }}</label>
                   </div>
-              </form>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-        <div class="col-md-4" id="card">
-          <div class="panel panel-default panelheight">
-            <div class="panel-heading text-center">Upload Your File</div>
-            <div class="panel-body text-center">
-              <div>
-                
-                <div id="wrapper">
-					<input type="file" accept="image/*" onchange="preview_image(event)">
-					<img id="output_image"/>
-				</div>
-                <!-- <div class="input-group">
-                <label class="input-group-btn">
+          <div class="col-md-4" id="card">
+            <div class="panel panel-default panelheight">
+              <div class="panel-heading text-center">Upload Your File</div>
+              <div class="panel-body text-center">
+                <div>
+                  
+                  <div class="input-group">
+                  <label class="input-group-btn">
                     <span class="btn btn-default">
-                        Browse <input type="file" style="display: none;" multiple>
-                    </span> 
-                </label>
-                <input type="text" class="form-control" readonly style="width:87%">
-                <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a>
-            </div> -->
-              </div>
-              <div class="well" style="margin:20px">
-                You have selected:<br>
-                Medium: {{ model.selectedMedium }}<br>
-                Size: {{ model.selectedSize }}<br>
-                Total Price: ${{ totalPrice() }}
-              </div>
+                      Browse <input name="file" type="file" onchange="preview_image(event)" style="display: none;" accept="image/*">
+                    </span>
+                  </label>
+                  <!-- {{ file }}<input type="text" class="form-control" readonly style="width:87%"> -->
+                  <img id="output_image" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="your image" height="100" width="auto"/>
+                  <!-- <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a> -->
+                  </div>
+                </div>
+                <div class="well" style="margin:20px">
+                  You have selected:<br>
+                  Medium: {{ model.selectedMedium }}<br>
+                  Size: {{ model.selectedSize }}<br>
+                  Total Price: ${{ totalPrice() }}
+                </div>
 
                 <!-- pay pal link -->
                 <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
