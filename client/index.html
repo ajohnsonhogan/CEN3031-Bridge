@@ -20,7 +20,7 @@
     <div id="nav-placeholder">
     </div>
  
-    <div class="container" id="outer">
+    <div class="container" id="outer" ng-controller="orderController">
       <div class="row vertical-centered" id="middle">
         <div id="inner">
         <div class="col-md-4" id="card">
@@ -29,12 +29,11 @@
             <div class="panel-body">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               <form>
-                  <input type="radio" ng-model="picMedium" value="Glossy" name="picMedium" class="form-radio"> <label>Glossy</label><br>
-                  <input type="radio" ng-model="picMedium" value="Matte" name="picMedium" class="form-radio"> <label>Matte</label><br>
-                  <input type="radio" value="Other" name="picMedium" class="form-radio"> <label>Other
-                  <a href="#" data-toggle="popover" data-placement="top" title="Other Medium Options" data-content="If you choose other, your price will not reflect it's true value."><i class="fas fa-info-circle"></i></a>
-                  </label>
-                  <input type="text" ng-model="picMedium" id="mediumText">
+                  <div ng-repeat="mediumOption in mediumOptions track by $index">
+                      <label>
+                      <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/>
+                      {{ mediumOption }}</label>
+                  </div>
               </form>
             </div>
           </div>
@@ -45,14 +44,12 @@
             <div class="panel-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <form>
-                  <input type="radio" ng-model="picSize" value="Small" name="picSize" class="form-radio"> <label>Small</label><br>
-                  <input type="radio" ng-model="picSize" value="Medium" name="picSize" class="form-radio"> <label>Medium</label><br>
-                  <input type="radio" ng-model="picSize" value="Large" name="picSize" class="form-radio"> <label>Large</label><br>
-                  <input type="radio" value="Other" name="picSize" class="form-radio"> <label>Other
-                  <a href="#" data-toggle="popover" data-placement="top" title="Other Size Options" data-content="If you choose other, your price will not reflect it's true value."><i class="fas fa-info-circle"></i></a>
-                  </label>
-                  <input type="text" ng-model="picSize" id="sizeText">
-                </form>
+                  <div ng-repeat="sizeOption in sizeOptions track by $index">
+                      <label>
+                        <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/>
+                      {{ sizeOption }}</label>
+                  </div>
+              </form>
           </div>
         </div>
       </div>
@@ -61,75 +58,51 @@
           <div class="panel panel-default panelheight">
             <div class="panel-heading text-center">Upload Your File</div>
             <div class="panel-body text-center">
-               <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a>
-              <!--<input type="file" name="file" id="file" class="inputfile"/ style="width:85%;display:inline-block;">
-              <br><br> -->
-              <style>
-body
-{
- width:100%;
- margin:0 auto;
- padding:0px;
- font-family:helvetica;
- background-color:#0B3861;
-}
-#wrapper
-{
- text-align:left;
- margin:0 auto;
- padding:0px;
- width:995px;
-}
-#output_image
-{
- max-width:300px;
-}
-</style>
+              <div>
+                
+                <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-default">
+                        Browse <input type="file" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly style="width:87%">
+                <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a>
+            </div>
+              </div>
+              <div class="well" style="margin:20px">
+                You have selected:<br>
+                Medium: {{ model.selectedMedium }}<br>
+                Size: {{ model.selectedSize }}<br>
+                Total Price: ${{ totalPrice() }}
+              </div>
 
-              <div id="wrapper">
-				  <input type="file" accept="image/*" onchange="preview_image(event)">
-				  <img id="output_image"/>
-			  </div>
-			  
-              Medium: {{picMedium}}<br>
-              Size: {{picSize}}
-              <br><br>
-              <form>    
-                <input id="getPrice" value="Get Price" type="button" name="test"/>
-              </form>
-              Price: $<span id="overallPrice">0</span>
-                     <!-- pay pal link -->
-            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="8JRBRT6SWAYCW">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="item_name" value="Test Photo DO NOT BUY">
-<input type="hidden" name="amount" value="10"> <!-- PASS IN PHP VARIABLE HERE-->
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="cn" value="Add special instructions to the seller:">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+                <!-- pay pal link -->
+                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                  <input type="hidden" name="cmd" value="_cart">
+                  <input type="hidden" name="business" value="8JRBRT6SWAYCW">
+                  <input type="hidden" name="lc" value="US">
+                  <input type="hidden" name="item_name" value=" {{ model.selectedSize }} Photo on {{ model.selectedMedium }}">
+                  <input type="hidden" name="amount" value="{{ totalPrice() }}"> <!-- PASS IN PHP VARIABLE HERE-->
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="hidden" name="button_subtype" value="products">
+                  <input type="hidden" name="no_note" value="0">
+                  <input type="hidden" name="cn" value="Add special instructions to the seller:">
+                  <input type="hidden" name="no_shipping" value="2">
+                  <input type="hidden" name="add" value="1">
+                  <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
 
-
-
-
-
-
-<!-- VIEW CART -->
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="8JRBRT6SWAYCW">
-<input type="hidden" name="display" value="1">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+                <!-- VIEW CART -->
+                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                  <input type="hidden" name="cmd" value="_cart">
+                  <input type="hidden" name="business" value="8JRBRT6SWAYCW">
+                  <input type="hidden" name="display" value="1">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
               </div>
             </div>
           </div>
@@ -144,7 +117,7 @@ body
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="controllers/listingController.js"></script>
+    <script src="js/controllers/orderController.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
