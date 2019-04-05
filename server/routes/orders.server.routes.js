@@ -1,5 +1,5 @@
 /* Dependencies */
-var listings = require('../controllers/listings.server.controller.js'), 
+var orders = require('../controllers/orders.server.controller.js'), 
     express = require('express'), 
     router = express.Router();
 
@@ -7,18 +7,21 @@ var listings = require('../controllers/listings.server.controller.js'),
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
-router.route('/')
-  .get(listings.list)
-  .post(listings.create);
+ router.route('/open')
+  .get(orders.listOpen);
 
+ router.route('/closed')
+  .get(orders.listClosed);
 
-/*
-  The ':' specifies a URL parameter. 
- */
-router.route('/:listingId')
-  .get(listings.read)
-  .put(listings.update)
-  .delete(listings.delete);
+ router.route('/complete/:orderId')
+  .post(orders.updateStatusComplete);
+
+  router.route('/shipped/:orderId')
+  .post(orders.updateStatusShipped);
+
+  router.route('/reopen/:orderId')
+  .post(orders.updateStatusReopen);
+
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
@@ -33,6 +36,6 @@ router.route('/:listingId')
   It will then pass control to the routing function specified above, where it will either 
   get, update, or delete that specific listing (depending on the HTTP verb specified)
  */
-router.param('listingId', listings.listingByID);
+router.param('orderId', orders.orderByID);
 
 module.exports = router;

@@ -2,9 +2,15 @@ angular.module('peetree', []).controller('orderController', function($scope) {
 
 /* medium choices */ 
   $scope.mediumOptions = [];
-  $scope.mediumOptions.push('Glossy');
-  $scope.mediumOptions.push('Matte');
-  $scope.mediumOptions.push('Something'); 
+  $scope.mediumOptions.push('Texture Fine Art Paper');
+  $scope.mediumOptions.push('Velvet Fine Art Paper');
+  $scope.mediumOptions.push('Watercolor Paper');
+  $scope.mediumOptions.push('Premium Canvas Satin'); 
+  $scope.mediumOptions.push('Premium Canvas Matte'); 
+  $scope.mediumOptions.push('Canvas');
+  $scope.mediumOptions.push('Enhanced Matte Posterboard'); 
+  $scope.mediumOptions.push('Somerset Velvet');
+  $scope.mediumOptions.push('Enhanced Adhesive Synthetic Paper');  
   $scope.model = {};
 
 /* size choices */ 
@@ -15,11 +21,11 @@ angular.module('peetree', []).controller('orderController', function($scope) {
   $scope.model = {};
 
   $scope.$watch('model.selectedMedium', function() {
-         if ($scope.model.selectedMedium == "Glossy") {
+         if ($scope.model.selectedMedium == "Textured Fine Art Paper") {
             $scope.mediumPrice = 1;
-        } else if ($scope.model.selectedMedium == "Matte") {
+        } else if ($scope.model.selectedMedium == "Velvet Fine Art Paper") {
             $scope.mediumPrice = 2;
-        } else if ($scope.model.selectedMedium == "Something") {
+        } else if ($scope.model.selectedMedium == "Watercolor Paper - Radiant White") {
             $scope.mediumPrice = 3;
         } else {
             $scope.mediumPrice = 0;
@@ -42,4 +48,26 @@ angular.module('peetree', []).controller('orderController', function($scope) {
     return $scope.sizePrice + $scope.mediumPrice;
   };
 
+  $scope.addMedium = function(){   
+      $scope.mediumOptions.push($scope.newMedium);
+      $scope.newMedium='';
+    };
+    
+
+  $scope.addSize = function(){   
+      $scope.sizeOptions.push($scope.newSize);
+      $scope.newSize='';
+    };
+
 });
+
+
+angular.module('orders').controller('orderController', ['$scope', 'Orders', 
+  function($scope, Orders) {
+    Orders.getAll().then(function(response) {
+      $scope.orders = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve listings:', error);
+    });
+  }
+]);
