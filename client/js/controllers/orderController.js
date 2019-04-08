@@ -62,12 +62,51 @@ angular.module('peetree', []).controller('orderController', function($scope) {
 });
 
 
-angular.module('orders').controller('orderController', ['$scope', 'Orders', 
-  function($scope, Orders) {
-    Orders.getAll().then(function(response) {
-      $scope.orders = response.data;
+angular.module('peetree').controller('businessController', ['$scope', '$window','Orders', 
+  function($scope, $window, Orders) {
+	console.log("success");
+    Orders.getOpen().then(function(response) {
+      $scope.openOrders = response.data;
     }, function(error) {
-      console.log('Unable to retrieve listings:', error);
+      console.log('Unable to retrieve orders:', error);
     });
+	Orders.getComplete().then(function(response) {
+      $scope.completeOrders = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve orders:', error);
+    });
+    
+    $scope.complete = function(id) {
+	  if(!confirm("Mark order as complete?")) return;
+      Orders.complete(id).then(function(response) {
+        $window.location.href = '/';
+      }, function(error) {
+        console.log('Unable to complete order:', error);
+      });
+    };
+    $scope.markShipped = function(id) {
+      Orders.markShipped(id).then(function(response) {
+        $window.location.href = '/';
+      }, function(error) {
+        console.log('Unable to mark order as shipped:', error);
+      });
+    };	
+    $scope.reopen = function(id) {
+	  if(!confirm("Reopen closed order?")) return;
+      Orders.reopen(id).then(function(response) {
+        $window.location.href = '/';
+      }, function(error) {
+        console.log('Unable to reopen order:', error);
+      });
+    };
+	$scope.create = function(order) {
+      Orders.create(order).then(function(response) {
+        $window.location.href = '/';
+      }, function(error) {
+        console.log('Unable to create order:', error);
+      });
+    };
+    
   }
 ]);
+

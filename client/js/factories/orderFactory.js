@@ -1,4 +1,4 @@
-angular.module('orders', []).factory('Orders', function($http) {
+angular.module('peetree').factory('Orders', function($http) {
   var methods = {
     getOpen: function() {
       return $http.get('/orders/open');
