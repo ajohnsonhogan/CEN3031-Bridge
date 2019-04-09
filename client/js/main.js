@@ -10,6 +10,15 @@ $('input[name="picSize"]').click(function(e) {
   }
 });
 
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 $('#sizeText').hide();
 
 $('input[name="picMedium"]').click(function(f) {
@@ -110,21 +119,15 @@ function ValidateSingleInput(oInput) {
   if (oInput.type == "file") {
     var sFileName = oInput.value;
     if (sFileName.length > 0) {
-        var blnValid = false;
-        for (var j = 0; j < _validFileExtensions.length; j++) {
-            var sCurExtension = _validFileExtensions[j];
-            if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-                blnValid = true;
-                break;
-            }
-        }
-        
-        if (!blnValid) {
-            alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
-            oInput.value = "";
-            return false;
-        }
+      var blnValid = false;
+      for (var j = 0; j < _validFileExtensions.length; j++) {
+          var sCurExtension = _validFileExtensions[j];
+          if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+              blnValid = true;
+              break;
+          }
+      }
+      return true;
     }
-}
-return true;
+  }
 } 

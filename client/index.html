@@ -91,9 +91,9 @@
                 <button class="btn btn-disabled" id="temp_add_to_cart"><input type="submit" value="Add to Cart" disabled></button>
 
                 <!-- pay pal link -->
-                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="add_to_cart" style="display:none">
+                <form target="_self" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="add_to_cart" style="display:none">
                   <input type="hidden" name="cmd" value="_cart">
-                  <input type="hidden" name="business" value="8JRBRT6SWAYCW">
+                  <input type="hidden" name="business" value="oconnellmj16@gmail.com">
                   <input type="hidden" name="lc" value="US">
                   <input type="hidden" name="item_name" value=" {{ model.selectedSize }} Photo on {{ model.selectedMedium }}">
                   <input type="hidden" name="amount" value="{{ totalPrice() }}"> <!-- PASS IN PHP VARIABLE HERE-->

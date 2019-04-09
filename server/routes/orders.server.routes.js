@@ -7,20 +7,23 @@ var orders = require('../controllers/orders.server.controller.js'),
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
- router.route('/open')
+ router.route('/getNew')
+  .get(orders.listNew);
+  
+  router.route('/getOpen')
   .get(orders.listOpen);
 
- router.route('/closed')
+ router.route('/getClosed')
   .get(orders.listClosed);
 
- router.route('/complete/:orderId')
-  .post(orders.updateStatusComplete);
+ router.route('/new/:orderId')
+  .post(orders.updateStatusNew);
 
-  router.route('/shipped/:orderId')
-  .post(orders.updateStatusShipped);
+  router.route('/open/:orderId')
+  .post(orders.updateStatusOpen);
 
-  router.route('/reopen/:orderId')
-  .post(orders.updateStatusReopen);
+  router.route('/closed/:orderId')
+  .post(orders.updateStatusClosed);
 
 
 /*

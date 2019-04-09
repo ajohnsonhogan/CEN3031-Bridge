@@ -16,8 +16,21 @@
     <!-- in file style sheet -->
     <link rel="stylesheet" href="styles/main.css">
   </head>  <body ng-app="peetreeApp">
+	  
+	  
 
 	Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.
+    
+    <!--cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO -->
+
+    <form method=post action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+		<input type ="hidden" name="cmd" value="_notify-synch">
+		<input type ="hidden" name="tx" value="TransactionID">
+		<input type ="hidden" name="at" value="cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO">
+		<input type ="submit" value="PDT">
+    </form>
+
+    
     
     <!-- javascript files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -1,21 +1,24 @@
-angular.module('orders', []).factory('Orders', function($http) {
+angular.module('peetree').factory('Orders', function($http) {
   var methods = {
+	getNew: function() {
+      return $http.get('/orders/getNew');
+    },
     getOpen: function() {
-      return $http.get('/orders/open');
+      return $http.get('/orders/getOpen');
     },
     
-    getComplete: function() {
-      return $http.get('/orders/closed');
+    getClosed: function() {
+      return $http.get('/orders/getClosed');
     },
   
-  complete: function(id) {
-    return $http.post('/orders/complete/' + id);
+  markNew: function(id) {
+    return $http.post('/orders/new/' + id);
     }, 
-  markShipped: function(id) {
-    return $http.post('/orders/shipped/' + id);
+  markOpen: function(id) {
+    return $http.post('/orders/open/' + id);
     }, 
-  reopen: function(id) {
-    return $http.post('/orders/reopen/' + id);
+  markClosed: function(id) {
+    return $http.post('/orders/closed/' + id);
     },
   create: function(id) {
     return $http.post('/orders' , order);
