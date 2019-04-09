@@ -21,14 +21,14 @@
 
 	Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.
     
-    cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO
+    <!--cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO -->
 
-    <h1>Your payment has been successful.</h1>
-    <h1>Your Item NUM - <?php echo $_GET['item_number']; ?></h1>
-    <h1>Your txn_id - <?php echo $_GET['tx']; ?></h1>
-    <h1>Your amt - <?php echo $_GET['amt']; ?></h1>
-    <h1>Your cc - <?php echo $_GET['cc']; ?></h1>
-    <h1>Your st - <?php echo $_GET['st']; ?></h1>
+    <form method=post action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+		<input type ="hidden" name="cmd" value="_notify-synch">
+		<input type ="hidden" name="tx" value="TransactionID">
+		<input type ="hidden" name="at" value="cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO">
+		<input type ="submit" value="PDT">
+    </form>
 
     
     
