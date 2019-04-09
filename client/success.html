@@ -21,6 +21,27 @@
 
 	Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.
     
+    cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO
+    
+    <?php
+// include 'dbConfig.php';
+
+//Get payment information from PayPal
+$item_number = $_GET['item_number']; 
+$txn_id = $_GET['tx'];
+$payment_gross = $_GET['amt'];
+$currency_code = $_GET['cc'];
+$payment_status = $_GET['st'];
+?>
+    <h1>Your payment has been successful.</h1>
+    <h1>Your Item NUM - <?php echo $_GET['item_number']; ?></h1>
+    <h1>Your txn_id - <?php echo $_GET['tx']; ?></h1>
+    <h1>Your amt - <?php echo $_GET['amt']; ?></h1>
+    <h1>Your cc - <?php echo $_GET['cc']; ?></h1>
+    <h1>Your st - <?php echo $_GET['st']; ?></h1>
+
+    
+    
     <!-- javascript files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
