@@ -25,12 +25,33 @@
       <div class="row vertical-centered" id="middle">
         <div id="inner">
 
-          <div class="col-md-4" id="card">
+          <div class="col-md-3 col-sm-6" id="card">
+              <div class="panel panel-default panelheight">
+                <div class="panel-heading text-center">Upload Your Image</div>
+                <div class="panel-body">
+                  <p style="text-align:center">
+                    <label>
+                      <span class="btn btn-default">
+                        Browse <input name="file" type="file" onchange="preview_image(event)" style="display: none;" accept="image/*">
+                      </span>
+                      <!-- {{ file }}<input type="text" class="form-control" readonly style="width:87%"> -->
+                      <img id="output_image" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="your image" height="auto" width="255"/>
+                      <!-- <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a> -->
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          <div class="col-md-3 col-sm-6" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Choose Your Medium</div>
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <form>
+                  <!-- <select name="medium" ng-model="model.selectedMedium">
+                    <option disabled>Medium</option>
+                    <option name="medium" ng-repeat="mediumOption in mediumOptions track by $index" ng-value="mediumOption">{{ mediumOption }}</option>
+                  </select> -->
                   <div ng-repeat="mediumOption in mediumOptions track by $index">
                     <label>
                       <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/>
@@ -41,11 +62,10 @@
             </div>
           </div>
 
-          <div class="col-md-4" id="card">
+          <div class="col-md-3 col-sm-6" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Choose Your Size</div>
               <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <form>
                   <div ng-repeat="sizeOption in sizeOptions track by $index">
                     <label>
@@ -57,25 +77,12 @@
             </div>
           </div>
 
-          <div class="col-md-4" id="card">
+          <div class="col-md-3 col-sm-6" id="card">
             <div class="panel panel-default panelheight">
-              <div class="panel-heading text-center">Upload Your File</div>
+              <div class="panel-heading text-center">Finish Your Order</div>
               <div class="panel-body text-center">
-                <div>
-                  
-                  <div class="input-group">
-                  <label class="input-group-btn">
-                    <span class="btn btn-default" style="margin:0px 0px 0px 50px">
-                      Browse <input name="file" type="file" onchange="preview_image(event)" style="display: none;" accept="image/*">
-                    </span>
-                  </label>
-                  <!-- {{ file }}<input type="text" class="form-control" readonly style="width:87%"> -->
-                  <img id="output_image" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="your image" height="100" width="auto"/>
-                  <!-- <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a> -->
-                  </div>
-                </div>
                 <div class="well" style="margin:20px">
-                  You have selected:<br>
+                  <span>You have selected:<br></span>
                   Medium: {{ model.selectedMedium }}<br>
                   Size: {{ model.selectedSize }}<br>
                   Total Price: ${{ totalPrice() }}
@@ -97,18 +104,9 @@
                   <input type="hidden" name="return" value="https://petrees-prints.herokuapp.com/success.html">
                   <input type="hidden" name="add" value="1">
                   <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  <button class="btn btn-primary"><input type="submit" name="submit" value="Add to Cart"></button>
                 </form>
 
-                <!-- VIEW CART -->
-                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-                  <input type="hidden" name="cmd" value="_cart">
-                  <input type="hidden" name="business" value="8JRBRT6SWAYCW">
-                  <input type="hidden" name="display" value="1">
-                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                </form>
               </div>
             </div>
           </div>
