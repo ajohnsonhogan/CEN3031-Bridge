@@ -31,10 +31,10 @@
 						
 						<div class="col-md-6" ng-repeat="order in newOrders | filter: created_at ">
 							<div class="order well">
-								<a href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
+								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
-									<span>{{order.size}}</span>
-									<span>{{order.medium}}</span>
+									<span>{{order.size}},</span>
+									<span>{{order.medium}},</span>
 									<span>{{order.price}}</span>
 								</div>
 								<br>
@@ -60,7 +60,7 @@
 					
 						<div class="col-md-6" ng-repeat="order in openOrders | filter: created_at ">
 							<div class="order well">
-								<a href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
+								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
 									<span>{{order.size}},</span>
 									<span>{{order.medium}},</span>
@@ -77,7 +77,7 @@
 								<span class="clear"></span>
 								<button class="btn btn-info" type="button" ng-click="markNew(order._id)">Mark as Unstarted</button>
 								<a ng-href="mailto:{{order.email.type}}&subject=Your%20order%20from%20Petree's%20Prints%20is%20on%20the%20way!&body=Hi%20{{order.name.type}},%0A%0AYour%20order%20is%20on%20the%20way!%0A%0AOrder%20Information:%0A%20%20%20%20Order%20Date:%20{{order.created_at | date : longDate}}%0A%20%20%20%20Order%20Size:%20{{order.size}}%0A%20%20%20%20Order%20Medium:%20{{order.medium}}%0A%20%20%20%20Order%20Price:%20{{order.price}}%0A%0AYour%20Order%20ID%20is%20{{order._id}}.%20Save%20this%20ID%20for%20future%20reference%20if%20you%20have%20any%20questions%20about%20your%20order.%0ALook%20out%20for%20a%20package%20soon!%0A%0A-Petree's%20Prints">
-								<button class="btn btn-info" type="button"><span style="color:black">Send Shipping Notification</span></button></a>
+								<button class="btn btn-info" type="button"><span>Send Shipping Notification</span></button></a>
 								<button class="btn btn-info" type="button" ng-click="markClosed(order._id)">Mark as Closed</button>
 							</div>
 						</div>
@@ -92,7 +92,7 @@
 
 						<div class="col-md-6" ng-repeat="order in closedOrders | orderBy:'created_at':true ">
 							<div class="order well">
-								<a href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
+								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
 									<span>{{order.size}},</span>
 									<span>{{order.medium}},</span>
