@@ -31,11 +31,11 @@
                 <div class="panel-body">
                   <p style="text-align:center">
                     <label>
-                      <span class="btn btn-default">
-                        Browse <input name="file" type="file" onchange="preview_image(event)" style="display: none;" accept="image/*">
+                      <span class="btn btn-default" style="margin-top:70px" id="browse_button">
+                        Browse <input name="file" type="file" onchange="preview_image(event)" style="display: none;" accept="image/*" style="margin-top: 50px;">
                       </span>
                       <!-- {{ file }}<input type="text" class="form-control" readonly style="width:87%"> -->
-                      <img id="output_image" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="your image" height="auto" width="255"/>
+                      <img id="output_image" alt="your image" height="auto" width="255" style="display:none"/>
                       <!-- <a href="#" data-toggle="popover" data-placement="top" title="Resolution Size Guidelines" data-content="Something about resolution here."><i class="fas fa-info-circle"></i></a> -->
                     </label>
                   </p>
@@ -53,7 +53,7 @@
                     <option name="medium" ng-repeat="mediumOption in mediumOptions track by $index" ng-value="mediumOption">{{ mediumOption }}</option>
                   </select> -->
                   <div ng-repeat="mediumOption in mediumOptions track by $index">
-                    <label>
+                    <label onclick="selectMedium()">
                       <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/>
                         {{ mediumOption }}</label>
                   </div>
@@ -68,7 +68,7 @@
               <div class="panel-body">
                 <form>
                   <div ng-repeat="sizeOption in sizeOptions track by $index">
-                    <label>
+                    <label onclick="selectSize()">
                       <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/>
                         {{ sizeOption }}</label>
                   </div>
@@ -88,8 +88,10 @@
                   Total Price: ${{ totalPrice() }}
                 </div>
 
+                <button class="btn btn-disabled" id="temp_add_to_cart"><input type="submit" value="Add to Cart" disabled></button>
+
                 <!-- pay pal link -->
-                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="add_to_cart" style="display:none">
                   <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="business" value="8JRBRT6SWAYCW">
                   <input type="hidden" name="lc" value="US">
