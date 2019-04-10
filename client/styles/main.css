@@ -13,6 +13,10 @@ body {
     vertical-align: middle;
 }
 
+.navbar {
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.2);
+}
+
 .navbar-nav {
     float:right;
 }
@@ -175,7 +179,7 @@ body {
 .btn {
     /* border-radius: 4px; */
     border: none;
-    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5);
 }
 
 .btn:hover {
@@ -183,7 +187,7 @@ body {
 }
 
 .btn:active {
-    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5);
 }
 
 .btn-default {
@@ -191,7 +195,12 @@ body {
 }
 
 .btn-primary {
-    background: #5091c7;
+    /* background: #5091c7; */
+    background: #669999;
+}
+
+.btn-primary:hover {
+    background: #538585;
 }
 
 .btn-info {
@@ -212,6 +221,7 @@ body {
 .well {
     box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
     border: none;
+    /* border-radius: 100px; */
 }
   
 /* The container <div> - needed to position the dropdown content */
@@ -266,6 +276,8 @@ body {
      cursor: pointer;     
      margin-right: 7px;
      outline: none;
+     box-shadow: inset 0px 1px 4px hsla(0, 0%, 0%, 0.1);
+     transition: .15s;
 }
 .form-radio:checked::before
 {
@@ -276,15 +288,17 @@ body {
      content: '\02143';
      transform: rotate(40deg);
      color: white;
+
 }
 .form-radio:hover
 {
      background-color: #f7f7f7;
-     transition: .2s;
+     transition: .15s;
 }
 .form-radio:checked
 {
      background-color: #669999;
+     box-shadow: 0px 1px 4px hsla(0, 0%, 0%, 0.3);
 }
 label
 {
