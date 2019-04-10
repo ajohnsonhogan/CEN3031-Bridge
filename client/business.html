@@ -25,14 +25,25 @@
 
         <div class="container ng-scope"  id="outer" ng-controller="businessController">
             <div class="row vertical-centered" id="middle">
-				<div id="inner" style="width:75%">
+				<div id="inner" style="width:75%;margin-top:69px;position:relative;">
+				<div class="panel panel-default" style="position: fixed;top:65px;width:75%;left:12.5%;z-index: 100;">
+                    <div class="panel-heading">
+					<input type="text" class="form-control" placeholder="Search by name, order ID, size, etc." ng-model="query">
+					</div>
+				</div>
+				
                 <div class="panel panel-default">
                     <div class="panel-heading">Unstarted Orders</div>
                     <div class="panel-body">
 						<!-- repeat here -->
 						
+<<<<<<< HEAD
 						<div class="col-md-3 order" ng-repeat="order in newOrders | filter: created_at ">
 							<div class="well">
+=======
+						<div class="col-md-6" ng-repeat="order in newOrders | orderBy: created_at | filter: query ">
+							<div class="order well">
+>>>>>>> dbd441a308aa5ffe370a9ae34f4bffa8d395aedc
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
 									<span>{{order.size}},</span>
@@ -118,6 +129,9 @@
 					
 					
 				</div>
+			
+					
+			
 			</div>
             </div>
         
@@ -127,7 +141,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
 		<script src="js/app.js"></script>
-		<script src="js/controllers/orderController.js"></script>
+		<script src="js/controllers/businessController.js"></script>
 		<script src="js/factories/orderFactory.js"></script>
 		<script src="js/main.js"></script>
         <script>

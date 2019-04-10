@@ -5,6 +5,8 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     ordersRouter = require('../routes/orders.server.routes');
+    mediumsRouter = require('../routes/mediums.server.routes');
+    sizesRouter = require('../routes/sizes.server.routes');
       
 module.exports.init = function() {
   //connect to database
@@ -29,6 +31,8 @@ module.exports.init = function() {
   /**TODO 
   Use the listings router for requests to the api */
   app.use('/orders', ordersRouter);
+  app.use('/mediums', mediumsRouter);
+  app.use('/sizes', sizesRouter);
 
   /**TODO 
   Go to homepage for all routes not specified */ 
