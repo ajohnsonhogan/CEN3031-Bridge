@@ -118,7 +118,7 @@ body {
 
 .panel {
     border: none;
-    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.3);
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
 }
 
 .panel-default .panel-heading {
@@ -191,7 +191,7 @@ body {
 }
 
 .btn-primary {
-    background: #388ace;
+    background: #5091c7;
 }
 
 .btn-info {
@@ -203,6 +203,10 @@ body {
 .btn-info:hover {
     background: #f5f5f5;
     color: #333;
+}
+
+.btn-disabled {
+    cursor: not-allowed;
 }
 
 .well {
@@ -293,6 +297,11 @@ label
 .fa-info-circle {
     color:gray;
     font-size:20px;
+}
+
+.aboutimg {
+	float:right;
+	margin:20px;
 }
 
 .order {
