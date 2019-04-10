@@ -70,6 +70,8 @@ function preview_image(event)
   reader.onload = function()
   {
     document.getElementById('browse_button').style.marginTop = "0px";
+    document.getElementById('browse_button').classList.remove("btn-primary");
+    document.getElementById('browse_button').classList.add("btn-default");
     var output = document.getElementById('output_image');
     output.style.display = "inline";
     output.src = reader.result;
