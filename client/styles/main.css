@@ -134,13 +134,17 @@ body {
     vertical-align: middle;
 }
 
+.navbar {
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.2);
+}
+
 .navbar-nav {
     float:right;
 }
 
-.navbar-nav a {
-    font-size:16px;
-    font-weight:300;
+.navlinks {
+    font-size:18px;
+    font-weight:400;
     text-align: right;
 }
 
@@ -154,15 +158,14 @@ body {
 
 #wrapper
 {
- text-align:center;
- margin:0 auto;
- padding:0px;
- 
+    text-align:center;
+    margin:0 auto;
+    padding:0px;
 }
 #output_image
 {
-padding:10px;
- max-width:300px;
+    padding:10px;
+    max-width:300px;
 }
 
 .nav a:before {
@@ -188,7 +191,7 @@ padding:10px;
 
 .navbar-brand {
     font-family: "bianca";
-    font-size:30px;
+    font-size:35px;
     padding:10px 20px;
     color:#000;
 }
@@ -235,9 +238,22 @@ padding:10px;
 }
 
 .panelheight {
-    min-height:300px;
+    min-height:268px;
 }
 
+.panel {
+    border: none;
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
+}
+
+.panel-default .panel-heading {
+    background-color: #ddf0cd;
+    border: none;
+    font-weight: 600;
+    color: hsla(0, 0%, 20%, 0.7);
+    font-size: larger;
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.2);
+}
 
 #card {
     /* max-width:500px; */
@@ -262,9 +278,14 @@ padding:10px;
   #inner {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
+    margin-bottom: 25px;
+    max-width: 1600px;
     /*whatever width you want*/
   }
+
+  /* .col-md-3 {
+      min-width: 333px;
+  } */
 
   input[type=submit] {
     background:none!important;
@@ -273,12 +294,55 @@ padding:10px;
     padding:0!important;
     font: inherit;
     cursor: pointer;
-    font-size:16px;
-    font-weight:300;
     text-align: center;
 }
 
+.btn {
+    /* border-radius: 4px; */
+    border: none;
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5);
+}
 
+.btn:hover {
+    transition: .15s;
+}
+
+.btn:active {
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5);
+}
+
+.btn-default {
+    background: #f5f5f5;
+}
+
+.btn-primary {
+    /* background: #5091c7; */
+    background: #669999;
+}
+
+.btn-primary:hover {
+    background: #538585;
+}
+
+.btn-info {
+    margin:2px;
+    background: white;
+    color: #333;
+}
+
+.btn-info:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.btn-disabled {
+    cursor: not-allowed;
+}
+
+.well {
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
+    border: none;
+}
   
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -293,7 +357,7 @@ padding:10px;
     background-color: #f1f1f1;
     min-width: 100%;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px hsla(0, 0%, 0%, 0.2);
     z-index: 1;
     -webkit-transition: all 0.15s ease-in-out 0s;
     transition: all 0.15s ease-in-out 0s;
@@ -332,6 +396,8 @@ padding:10px;
      cursor: pointer;     
      margin-right: 7px;
      outline: none;
+     box-shadow: inset 0px 1px 4px hsla(0, 0%, 0%, 0.1);
+     transition: .15s;
 }
 .form-radio:checked::before
 {
@@ -341,18 +407,21 @@ padding:10px;
      top: 7px;
      content: '\02143';
      transform: rotate(40deg);
+     color: white;
 }
 .form-radio:hover
 {
      background-color: #f7f7f7;
+     transition: .15s;
 }
 .form-radio:checked
 {
-     background-color: #f1f1f1;
+     background-color: #669999;
+     box-shadow: 0px 1px 4px hsla(0, 0%, 0%, 0.3);
 }
 label
 {
-     font: 300 16px/1.7 'Open Sans', sans-serif;
+     font: 400 16px/1.7 'Open Sans', sans-serif;
      color: #666;
      cursor: pointer;
 } 
@@ -361,5 +430,24 @@ label
 .fa-info-circle {
     color:gray;
     font-size:20px;
+}
+
+.aboutimg {
+	float:right;
+	margin:20px;
+}
+
+.order {
+    min-height: 225px;
+}
+
+.order-image {
+    max-height:200px;
+    max-width:200px;
+    height:auto;
+    width:auto;
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
