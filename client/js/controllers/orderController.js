@@ -60,14 +60,3 @@ angular.module('peetree', []).controller('orderController', function($scope) {
     };
 
 });
-
-
-angular.module('orders').controller('orderController', ['$scope', 'Orders', 
-  function($scope, Orders) {
-    Orders.getAll().then(function(response) {
-      $scope.orders = response.data;
-    }, function(error) {
-      console.log('Unable to retrieve listings:', error);
-    });
-  }
-]);

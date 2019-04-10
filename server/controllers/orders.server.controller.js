@@ -42,10 +42,10 @@ exports.create = function(req, res) {
   });
 };
 
-exports.updateStatusComplete = function(req, res) {
+exports.updateStatusNew = function(req, res) {
   var order = Object.assign(req.order, req.body);
 
-  order.status = "Closed";
+  order.status = "New";
 
   order.save(function(err) {
     if(err) {
@@ -57,22 +57,7 @@ exports.updateStatusComplete = function(req, res) {
   });
 };
 
-exports.updateStatusShipped = function(req, res) {
-  var order = Object.assign(req.order, req.body);
-
-  order.status = "Shipped";
-
-  order.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(order);
-    }
-  });
-};
-
-exports.updateStatusReopen = function(req, res) {
+exports.updateStatusOpen = function(req, res) {
   var order = Object.assign(req.order, req.body);
 
   order.status = "Open";
@@ -87,10 +72,10 @@ exports.updateStatusReopen = function(req, res) {
   });
 };
 
-exports.updateStatusComplete = function(req, res) {
+exports.updateStatusClosed = function(req, res) {
   var order = Object.assign(req.order, req.body);
 
-  order.status = "Complete";
+  order.status = "Closed";
 
   order.save(function(err) {
     if(err) {
@@ -104,8 +89,8 @@ exports.updateStatusComplete = function(req, res) {
 
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
-exports.list = function(req, res) {
-  Orders.find({}, function (err, datak) {
+exports.listNew = function(req, res) {
+  Orders.find({status: 'New'}, function (err, datak) {
 	  if (err) {
 		  res.status(400).send(err);
 	  }
@@ -137,16 +122,6 @@ exports.listClosed = function(req, res) {
   })
 };
 
-exports.list = function(req, res) {
-  Orders.find({}, function (err, datak) {
-    if (err) {
-      res.status(400).send(err);
-    }
-    else{
-      res.json(datak);
-    }
-  })
-};
 
 
 /* 
