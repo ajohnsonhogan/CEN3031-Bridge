@@ -25,13 +25,19 @@
 
         <div class="container ng-scope"  id="outer" ng-controller="businessController">
             <div class="row vertical-centered" id="middle">
-				<div id="inner" style="width:75%">
+				<div id="inner" style="width:75%;margin-top:69px;position:relative;">
+				<div class="panel panel-default" style="position: fixed;top:65px;width:75%;left:12.5%;z-index: 100;">
+                    <div class="panel-heading">
+					<input type="text" class="form-control" placeholder="Search by name, order ID, size, etc." ng-model="query">
+					</div>
+				</div>
+				
                 <div class="panel panel-default">
                     <div class="panel-heading">Unstarted Orders</div>
                     <div class="panel-body">
 						<!-- repeat here -->
 						
-						<div class="col-md-6" ng-repeat="order in newOrders | filter: created_at ">
+						<div class="col-md-6" ng-repeat="order in newOrders | orderBy: created_at | filter: query ">
 							<div class="order well">
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
@@ -41,10 +47,10 @@
 								</div>
 								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name.type}}</div>
+									<div>Name: {{order.name}}</div>
 									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email.type}}</div>
-									<div>Shipping Address: {{order.address.type}}</div>
+									<div>Email Address: {{order.email}}</div>
+									<div>Shipping Address: {{order.address}}</div>
 									<div>Order ID: {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
@@ -60,7 +66,7 @@
 					<div class="panel-body">
 					<!-- repeat here -->
 					
-						<div class="col-md-6" ng-repeat="order in openOrders | filter: created_at ">
+						<div class="col-md-6" ng-repeat="order in openOrders | orderBy: created_at | filter: query ">
 							<div class="order well">
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
@@ -70,15 +76,15 @@
 								</div>
 								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name.type}}</div>
+									<div>Name: {{order.name}}</div>
 									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email.type}}</div>
-									<div>Shipping Address: {{order.address.type}}</div>
+									<div>Email Address: {{order.email}}</div>
+									<div>Shipping Address: {{order.address}}</div>
 									<div>Order ID: {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
 								<button class="btn btn-info" type="button" ng-click="markNew(order._id)">Mark as Unstarted</button>
-								<a ng-href="mailto:{{order.email.type}}&subject=Your%20order%20from%20Petree's%20Prints%20is%20on%20the%20way!&body=Hi%20{{order.name.type}},%0A%0AYour%20order%20is%20on%20the%20way!%0A%0AOrder%20Information:%0A%20%20%20%20Order%20Date:%20{{order.created_at | date : longDate}}%0A%20%20%20%20Order%20Size:%20{{order.size}}%0A%20%20%20%20Order%20Medium:%20{{order.medium}}%0A%20%20%20%20Order%20Price:%20{{order.price}}%0A%0AYour%20Order%20ID%20is%20{{order._id}}.%20Save%20this%20ID%20for%20future%20reference%20if%20you%20have%20any%20questions%20about%20your%20order.%0ALook%20out%20for%20a%20package%20soon!%0A%0A-Petree's%20Prints">
+								<a ng-href="mailto:{{order.email}}?subject=Your%20order%20from%20Petree's%20Prints%20is%20on%20the%20way!&body=Hi%20{{order.name}},%0A%0AYour%20order%20is%20on%20the%20way!%0A%0AOrder%20Information:%0A%20%20%20%20Order%20Date:%20{{order.created_at | date : longDate}}%0A%20%20%20%20Order%20Size:%20{{order.size}}%0A%20%20%20%20Order%20Medium:%20{{order.medium}}%0A%20%20%20%20Order%20Price:%20{{order.price}}%0A%0AYour%20Order%20ID%20is%20{{order._id}}.%20Save%20this%20ID%20for%20future%20reference%20if%20you%20have%20any%20questions%20about%20your%20order.%0ALook%20out%20for%20a%20package%20soon!%0A%0A-Petree's%20Prints">
 								<button class="btn btn-info" type="button"><span>Send Shipping Notification</span></button></a>
 								<button class="btn btn-info" type="button" ng-click="markClosed(order._id)">Mark as Closed</button>
 							</div>
@@ -92,7 +98,7 @@
 					<div class="panel-body">
 						<!-- repeat here -->
 
-						<div class="col-md-6" ng-repeat="order in closedOrders | orderBy:'created_at':true ">
+						<div class="col-md-6" ng-repeat="order in closedOrders | orderBy: created_at | filter: query ">
 							<div class="order well">
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
@@ -102,10 +108,10 @@
 								</div>
 								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name.type}}</div>
+									<div>Name: {{order.name}}</div>
 									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email.type}}</div>
-									<div>Shipping Address: {{order.address.type}}</div>
+									<div>Email Address: {{order.email}}</div>
+									<div>Shipping Address: {{order.address}}</div>
 									<div>Order ID: {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
@@ -118,6 +124,9 @@
 					
 					
 				</div>
+			
+					
+			
 			</div>
             </div>
         
@@ -127,7 +136,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 		<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
 		<script src="js/app.js"></script>
-		<script src="js/controllers/orderController.js"></script>
+		<script src="js/controllers/businessController.js"></script>
 		<script src="js/factories/orderFactory.js"></script>
 		<script src="js/main.js"></script>
         <script>
