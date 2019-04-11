@@ -25,7 +25,7 @@
 
         <div class="container ng-scope"  id="outer" ng-controller="businessController">
             <div class="row vertical-centered" id="middle">
-				<div id="inner" style="width:75%;margin-top:69px;position:relative;">
+				<div id="inner" style="width:75%;margin-top:75px;position:relative;">
 				<div class="panel panel-default" style="position: fixed;top:65px;width:75%;left:12.5%;z-index: 100;">
                     <div class="panel-heading">
 					<input type="text" class="form-control" placeholder="Search by name, order ID, size, etc." ng-model="query">
@@ -41,17 +41,14 @@
 							<div class="well">
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
-									<span>{{order.size}},</span>
-									<span>{{order.medium}},</span>
-									<span>{{order.price}}</span>
+<span>{{order.size}}  |  </span><span>{{order.medium}}  |  </span><span>{{order.price}}</span>
 								</div>
-								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name}}</div>
-									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email}}</div>
-									<div>Shipping Address: {{order.address}}</div>
-									<div>Order ID: {{order._id}}</div>
+									<div><b>Name:</b> {{order.name}}</div>
+									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+									<div><b>Email Address:</b> {{order.email}}</div>
+									<div><b>Shipping Address:</b> {{order.address}}</div>
+									<div><b>Order ID:</b> {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
 								<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Open Order</button>
@@ -70,17 +67,14 @@
 							<div class="well">
 								<a target="_blank" class="order-image" href="http://{{order.image}}"><img src="images/test.jpg" alt="your image"/></a>
 								<div class="orderHeadline">
-									<span>{{order.size}},</span>
-									<span>{{order.medium}},</span>
-									<span>{{order.price}}</span>
+<span>{{order.size}}  |  </span><span>{{order.medium}}  |  </span><span>{{order.price}}</span>
 								</div>
-								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name}}</div>
-									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email}}</div>
-									<div>Shipping Address: {{order.address}}</div>
-									<div>Order ID: {{order._id}}</div>
+									<div><b>Name:</b> {{order.name}}</div>
+									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+									<div><b>Email Address:</b> {{order.email}}</div>
+									<div><b>Shipping Address:</b> {{order.address}}</div>
+									<div><b>Order ID:</b> {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
 								<button class="btn btn-secondary" type="button" ng-click="markNew(order._id)">Mark as Unstarted</button>
@@ -102,17 +96,14 @@
 							<div class="well">
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
-									<span>{{order.size}},</span>
-									<span>{{order.medium}},</span>
-									<span>{{order.price}}</span>
+<span>{{order.size}}  |  </span><span>{{order.medium}}  |  </span><span>{{order.price}}</span>
 								</div>
-								<br>
 								<div class="orderTable">
-									<div>Name: {{order.name}}</div>
-									<div>Order Date: {{order.created_at | date : longDate}}</div>
-									<div>Email Address: {{order.email}}</div>
-									<div>Shipping Address: {{order.address}}</div>
-									<div>Order ID: {{order._id}}</div>
+									<div><b>Name:</b> {{order.name}}</div>
+									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+									<div><b>Email Address:</b> {{order.email}}</div>
+									<div><b>Shipping Address:</b> {{order.address}}</div>
+									<div><b>Order ID:</b> {{order._id}}</div>
 								</div>
 								<span class="clear"></span>
 								<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Re-open Order</button>

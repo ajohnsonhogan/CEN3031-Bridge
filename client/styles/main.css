@@ -349,6 +349,7 @@ body {
 .well {
     box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
     border: none;
+	min-width:300px;
 }
 
   
@@ -452,11 +453,14 @@ label
 }
 
 .order-image {
-    width:100%;
+    margin:auto;
     height: auto;
     max-height: 150px;
     overflow: hidden;
-    margin: 0;
+    margin-left: auto;
+	margin-right:auto;
+	margin-top:0;
+	margin-bottom:0;
     display: block;
     border-radius: 4px;
 }
@@ -466,5 +470,15 @@ label
     height:200px;
     width: auto;
     max-width:initial;
+}
+
+.orderHeadline {
+	font-weight:bold;
+	white-space:pre;
+	margin-left:10px;
+}
+.orderTable{
+	margin-left:10px;
+	display:block;
 }
 
