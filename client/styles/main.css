@@ -128,7 +128,7 @@ span.psw {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: url("../images/tree.jpg") no-repeat center center fixed; 
+    background: url("../images/tree2.jpg") no-repeat center center fixed; 
     background-size: cover;
     background-position: center top;
     vertical-align: middle;
@@ -148,6 +148,12 @@ body {
     text-align: right;
 }
 
+.navbar-default .navbar-nav li a {
+    transition: .15s;
+}
+.navbar-default .navbar-brand {
+    transition: .15s;
+}
 
 .nav a {
     position: relative;
@@ -301,6 +307,7 @@ body {
     /* border-radius: 4px; */
     border: none;
     box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5);
+    transition: .15s;
 }
 
 .btn:hover {
@@ -321,16 +328,16 @@ body {
 }
 
 .btn-primary:hover {
-    background: #538585;
+    background: hsl(180, 20%, 40%);
 }
 
-.btn-info {
-    margin:2px;
+.btn-secondary {
+    margin:5px 2px;
     background: white;
     color: #333;
 }
 
-.btn-info:hover {
+.btn-secondary:hover {
     background: #f5f5f5;
     color: #333;
 }
@@ -438,17 +445,26 @@ label
 	margin:20px;
 }
 
-.order {
-    min-height: 225px;
+.order .well {
+    min-height: 200px;
+    padding: 0;
+    margin: 0;
 }
 
 .order-image {
-    max-height:200px;
-    max-width:200px;
-    height:auto;
-    width:auto;
-    float: left;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    width:100%;
+    height: auto;
+    max-height: 150px;
+    overflow: hidden;
+    margin: 0;
+    display: block;
+    border-radius: 4px;
+}
+
+.order-image img {
+    padding-bottom: 15px;
+    height:200px;
+    width: auto;
+    max-width:initial;
 }
 
