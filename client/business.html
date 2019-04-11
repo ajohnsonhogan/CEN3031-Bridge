@@ -37,13 +37,8 @@
                     <div class="panel-body">
 						<!-- repeat here -->
 						
-<<<<<<< HEAD
-						<div class="col-md-3 order" ng-repeat="order in newOrders | filter: created_at ">
+						<div class="col-md-3 order" ng-repeat="order in newOrders | orderBy: created_at | filter: query ">
 							<div class="well">
-=======
-						<div class="col-md-6" ng-repeat="order in newOrders | orderBy: created_at | filter: query ">
-							<div class="order well">
->>>>>>> dbd441a308aa5ffe370a9ae34f4bffa8d395aedc
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
 									<span>{{order.size}},</span>
