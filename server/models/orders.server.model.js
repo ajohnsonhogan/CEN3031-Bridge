@@ -3,38 +3,35 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
-var listingSchema = new Schema({
+var orderSchema = new Schema({
   name: {
     type: String, 
     required: true
   }, 
-  code: {
+  email: {
     type: String, 
     required: true, 
-    unique: true
   }, 
-  address: String, 
-  coordinates: {
-    latitude: Number, 
-    longitude: Number
-  },
+  address: {
+    type:String,
+    required: true, 
+  }, 
+  size: String,
+  medium: String,
+  price: String,
+  image: String,
   created_at: Date,
-  updated_at: Date
+  status: String
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-listingSchema.pre('save', function(next) {
+orderSchema.pre('save', function(next) {
   var currentTime = new Date;
-  this.updated_at = currentTime;
-  if(!this.created_at)
-  {
-    this.created_at = currentTime;
-  }
   next();
 });
 
 /* Use your schema to instantiate a Mongoose model */
-var Listing = mongoose.model('Listing', listingSchema);
+var Orders = mongoose.model('Orders', orderSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = Listing;
+module.exports = Orders;

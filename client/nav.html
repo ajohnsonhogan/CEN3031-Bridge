@@ -1,21 +1,33 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./">Petree <i class="fab fa-pagelines"></i> Prints</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand brandname" href="./">Petree's <i class="fab fa-pagelines"></i> Prints</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="./">Order</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li class="dropdown">
-                <a href="account.html">Account</a>
-                <div class="dropdown-content">
-                    <a href="#">Orders</a>
-                    <a href="#">Logout</a>
-                </div>
-            </li>
-       </ul>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navlinks">
+                <li><a href="./">Order</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a><form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="business" value="oconnellmj16@gmail.com">
+                    <input type="hidden" name="display" value="1">
+                    <input type="submit" name="submit" value="Cart" style="font-weight:400; font-size:18px">
+                </form></a></li>
+                <li class="dropdown">
+                    <a href="account.html">Account</a>
+                    <div class="dropdown-content">
+                        <a href="#">Orders</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
-<div class="jumbotron">
+<div class="background">
 </div>
