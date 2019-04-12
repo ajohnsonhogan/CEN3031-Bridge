@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 /* Create your schema */
 var mediumSchema = new Schema({
   name: String,
-  price: String
+  price: Number
 });
 
 

@@ -1,4 +1,4 @@
-angular.module('peetree', []).controller('orderController', function($scope) {
+angular.module('petree', []).controller('orderController', function($scope) {
 
 /* medium choices */ 
   $scope.mediumOptions = [];
