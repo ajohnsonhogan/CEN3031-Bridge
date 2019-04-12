@@ -112,7 +112,7 @@ var parseQueryString = function( queryString ) {
     }
     return params;
 };
-
+ /*
 function getTransactionID(){
 	var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
 	var pathArray = window.location.pathname.split('&');
@@ -122,7 +122,7 @@ function getTransactionID(){
 	
 	return tid;
 }
-
+*/
 
 
 function getPrice() {
