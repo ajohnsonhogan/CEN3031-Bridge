@@ -13,6 +13,7 @@ var path = require('path'),
 module.exports.init = function() {
   //connect to database
   mongoose.connect(config.db.uri);
+  
 
   //initialize app
   var app = express();
@@ -50,6 +51,10 @@ module.exports.init = function() {
   Use the listings router for requests to the api */
   app.use('/orders', ordersRouter);
   app.use('/account', accountRouter);
+
+  app.get('/signup', function(req, res, next){
+    res.sendFile(path.resolve(__dirname + '/../../client/register.html'));
+  });
 
   /**TODO 
   Go to homepage for all routes not specified */ 

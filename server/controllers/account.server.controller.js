@@ -20,7 +20,7 @@ passport.use('local-signup', new LocalStrategy({
 
     const user = await User.findOne({email: email});
     if(user) {
-        return done(null, false, req.flash('signupMessage', 'El email ya existe'));
+        return done(null, false, req.flash('signupMessage', 'This email already exist'));
     } else{
         const newUser = new User();
         newUser.email = email;
@@ -38,10 +38,10 @@ passport.use('local-signin', new LocalStrategy({
 
     const user = await User.findOne({email: email});
     if(!user) {
-        return done(null, false, req.flash('signinMessage', 'user no encontrado'));
+        return done(null, false, req.flash('signinMessage', 'user no found'));
     }
     if(!user.comparePassword(password)) {
-        return done(null, false, req.flash('signinMessage', 'Password Incorecto'));
+        return done(null, false, req.flash('signinMessage', 'Password Incorect'));
     }
     done(null, user);
 }));
