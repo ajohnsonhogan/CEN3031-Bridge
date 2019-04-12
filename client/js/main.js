@@ -112,18 +112,6 @@ var parseQueryString = function( queryString ) {
     }
     return params;
 };
- /*
-function getTransactionID(){
-	var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
-	var pathArray = window.location.pathname.split('&');
-	var secondLevelLocation = pathArray[3]; // the "tx=string"
-	var tx = secondLevelLocation.split('=');
-	var tid = tx[1];
-	
-	return tid;
-}
-*/
-
 
 function getPrice() {
   $("#overallPrice").html(sizePrice + mediumPrice);
