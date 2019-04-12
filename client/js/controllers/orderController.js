@@ -58,5 +58,15 @@ angular.module('peetree', []).controller('orderController', function($scope) {
       $scope.sizeOptions.push($scope.newSize);
       $scope.newSize='';
     };
+    
+$scope.getTransactionID = function() {
+	var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
+	var pathArray = window.location.pathname.split('&');
+	var secondLevelLocation = pathArray[3]; // the "tx=string"
+	var tx = secondLevelLocation.split('=');
+	$scope.tid = tx[1];
+	
+	return $scope.tid;
+}; 
 
 });
