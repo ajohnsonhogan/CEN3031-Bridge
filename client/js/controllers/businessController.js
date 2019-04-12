@@ -1,4 +1,4 @@
-angular.module('peetree').controller('businessController', ['$scope', '$window','Orders', 
+angular.module('petree').controller('businessController', ['$scope', '$window','Orders', 
   function($scope, $window, Orders) {
 	console.log("success");
     Orders.getNew().then(function(response) {

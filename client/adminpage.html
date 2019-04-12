@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
 
     </head>
-    <body ng-app="peetreeApp" class='ng-scope'>
+    <body ng-app="petreeApp" class='ng-scope'>
 
         <!-- nav bar -->
         <div id="nav-placeholder">
@@ -26,7 +26,7 @@
                 <div class="panel panel-default panelheight" id="inner">
                     <div class="panel-heading">Add to Orders</div>
                     <div class="panel-body" >
-                        <div  ng-controller="mediumController">
+                        <div ng-controller="mediumController">
                         <form ng-submit="addMedium(newMedium)">
                             <label>Name: <input type="text" ng-model="newMedium.name" /></label><br />
                             <label>Price: <input type="text" ng-model="newMedium.price" /></label><br />

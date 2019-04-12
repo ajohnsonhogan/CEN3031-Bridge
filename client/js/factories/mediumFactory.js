@@ -1,4 +1,4 @@
-angular.module('peetree', []).factory('Mediums', function($http) {
+angular.module('petree', []).factory('Mediums', function($http) {
   var methods = {    
     getMediums: function() {
       return $http.get('/mediums');
