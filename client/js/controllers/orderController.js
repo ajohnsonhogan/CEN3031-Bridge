@@ -64,7 +64,7 @@ $scope.getTransactionID = function() {
 	var pathArray = window.location.query.split('&');
 	var secondLevelLocation = pathArray[2]; // the "tx=string"
 	var tx = secondLevelLocation.split('=');
-	$scope.tid = tx[1];
+	$scope.tid = 'sampleTID';
 	
 	return $scope.tid;
 }; 
