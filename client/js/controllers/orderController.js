@@ -61,6 +61,7 @@ angular.module('peetree', []).controller('orderController', function($scope) {
       $scope.newSize='';
     };
     
+    /*
 $scope.getTransactionID = function() {
 	var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
 	var pathArray = window.location.pathname.split('&');
@@ -69,6 +70,6 @@ $scope.getTransactionID = function() {
 	$scope.tid = tx[1];
 	
 	return $scope.tid;
-};
+}; */
 
 });
