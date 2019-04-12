@@ -1,4 +1,4 @@
-angular.module('peetree').factory('Orders', function($http) {
+angular.module('petree').factory('Orders', function($http) {
   var methods = {
 	getNew: function() {
       return $http.get('/orders/getNew');

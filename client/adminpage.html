@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
 
     </head>
-    <body ng-app="peetreeApp" class='ng-scope'>
+    <body ng-app="petreeApp" class='ng-scope'>
 
         <!-- nav bar -->
         <div id="nav-placeholder">
@@ -36,20 +36,23 @@
                           </form>
                           <ul>
                             <li ng-repeat="medium in allMediums">
-                              {{medium.name}} {{medium.price}}
+                              {{medium.name}} ${{medium.price}}
                               <button ng-click="removeMedium(medium)">Remove</button>
                             </li>
                           </ul>
                         </div>
-                        <div  ng-controller="sizeController">
-                        <form novalidate class="simple-form">
-                            Name: <input type="text" ng-model="newSize.name" /><br />
-                            Price: <input type="text" ng-model="newSize.price" /><br />
-                            <button class="btn btn-primary" ng-click="addSize()">Add Size</button>
-                          </form>
+                        <div ng-controller="sizeController">
+                            <form ng-submit="addSize(newSize)">
+                                <label>Name: <input type="text" ng-model="newSize.name" /></label><br />
+                                <label>Price: <input type="text" ng-model="newSize.price" /></label><br />
+                                <button class="btn btn-primary" >
+                                    <input type="submit"  value="Add Size" />
+                                </button>
+                            </form>
                           <ul>
                             <li ng-repeat="size in allSizes">
-                              {{size.name}} {{size.price}}
+                              {{size.name}} ${{size.price}}
+                              <button ng-click="removeSize(size)">Remove</button>
                             </li>
                           </ul>
                         </div>

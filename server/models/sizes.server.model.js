@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 /* Create your schema */
 var sizeSchema = new Schema({
   name: String,
-  price: String	
+  price: Number
 });
 
 

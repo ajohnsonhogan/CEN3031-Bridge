@@ -17,7 +17,7 @@
 		<title>Owner Dashboard - Petree's Prints</title>	
 
     </head>
-    <body ng-app="peetreeApp" class='ng-scope'>
+    <body ng-app="petreeApp" class='ng-scope'>
 
         <!-- nav bar -->
         <div id="nav-placeholder">
@@ -39,6 +39,7 @@
 						
 						<div class="col-md-3 order" ng-repeat="order in newOrders | orderBy: created_at | filter: query ">
 							<div class="well">
+
 								<a target="_blank" href="http://{{order.image}}"><img class="order-image" src="http://{{order.image}}" alt="your image"/></a>
 								<div class="orderHeadline">
 <span>{{order.size}}  |  </span><span>{{order.medium}}  |  </span><span>{{order.price}}</span>
