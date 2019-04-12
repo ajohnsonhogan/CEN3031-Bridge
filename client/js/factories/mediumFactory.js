@@ -18,6 +18,10 @@ angular.module('petree', []).factory('Mediums', function($http) {
 
     createSize: function(size) {
       return $http.post('/sizes' , size);
+    },
+
+    deleteSize: function(id) {
+      return $http.delete('/sizes/' + id);
     }
 
   };

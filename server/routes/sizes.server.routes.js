@@ -11,6 +11,10 @@ var sizes = require('../controllers/sizes.server.controller.js'),
   .get(sizes.list)
   .post(sizes.create);
 
+
+router.route('/:sizeId')
+  .delete(sizes.delete);
+
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
   requests with a parameter.

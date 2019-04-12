@@ -18,11 +18,8 @@ exports.create = function(req, res) {
   /* Instantiate a Listing */
   var size = new Sizes(req.body);
 
- /* save the coordinates (located in req.results if there is an address property) */
-  if(req.results) {
-      size.name = req.results.name
-      size.price = req.results.price
-  }
+    // medium.name = req.name;
+    // medium.price = req.price;
 
 
   /* Then save the listing */
@@ -47,6 +44,23 @@ exports.list = function(req, res) {
       res.json(datak);
     }
   })
+};
+
+exports.delete = function(req, res) {
+  var size = req.size;
+
+  Sizes.findOneAndRemove({'_id' : size._id},function(err) {
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      console.log('Deleted!');
+    }
+    res.send(size);
+  });
+
+  /** TODO **/
+  /* Remove the article */
 };
 
 /* 

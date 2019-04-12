@@ -58,5 +58,15 @@ angular.module('petree').controller('orderController', function($scope) {
       $scope.sizeOptions.push($scope.newSize);
       $scope.newSize='';
     };
+    
+$scope.getTransactionID = function() {
+	
+	var pathArray = window.location.query.split('&');
+	var secondLevelLocation = pathArray[2]; // the "tx=string"
+	var tx = secondLevelLocation.split('=');
+	$scope.tid = 'sampleTID';
+	
+	return $scope.tid;
+}; 
 
 });

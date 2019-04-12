@@ -7,13 +7,13 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
     console.log('Unable to retrieve mediums:', error);
   });
 
-$scope.addMedium = function(newMedium) {
-  Mediums.createMedium(newMedium).then(function(response) {
-        window.location.reload();
-    }, function(error) {
-      console.log(error)
-    });
-  };
+  $scope.addMedium = function(newMedium) {
+    Mediums.createMedium(newMedium).then(function(response) {
+          window.location.reload();
+      }, function(error) {
+        console.log(error)
+      });
+    };
 
   $scope.removeMedium = function(medium) {
     Mediums.deleteMedium(medium._id).then(function(response) {
@@ -27,7 +27,8 @@ $scope.addMedium = function(newMedium) {
 
 
   }
-]);
+])
+
 
 
 angular.module('petree').controller('sizeController', ['$scope', 'Sizes', 
@@ -38,12 +39,25 @@ angular.module('petree').controller('sizeController', ['$scope', 'Sizes',
       console.log('Unable to retrieve sizes:', error);
     });
 
-    Sizes.create().then(function(response) {
-        $scope.allSizes.push({ 'name':$scope.name, 'price': $scope.price});
-        $scope.name='';
-        $scope.price='';
+  $scope.addSize = function(newSize) {
+    Sizes.createSize(newSize).then(function(response) {
+         // $scope.allMediums.push({'name':newMedium.name, 'price': newMedium.price});
+         // newMedium.name='';
+         // newMedium.price='';
+         window.location.reload();
       }, function(error) {
         console.log(error)
       });
     }
+
+     $scope.removeSize = function(size) {
+      Sizes.deleteSize(size._id).then(function(response) {
+        $scope.allSizes.splice($scope.allSizes.indexOf(size),1);  
+      }, function(error) {
+        console.log(error);
+      });
+    };
+
+
+  }
 ]);
