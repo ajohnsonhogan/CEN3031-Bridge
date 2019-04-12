@@ -25,7 +25,11 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  
+}
+
+.order button {
+	width: 98%;
 }
 
 button:hover {
