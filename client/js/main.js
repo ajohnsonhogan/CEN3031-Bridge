@@ -101,6 +101,30 @@ function checkAllSelected() {
   }
 }
 
+var parseQueryString = function( queryString ) {
+    var params = {}, queries, temp, i, l;
+    // Split into key/value pairs
+    queries = queryString.split("&");
+    // Convert the array of strings into an object
+    for ( i = 0, l = queries.length; i < l; i++ ) {
+        temp = queries[i].split('=');
+        params[temp[0]] = temp[1];
+    }
+    return params;
+};
+
+function getTransactionID(){
+	var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
+	var pathArray = window.location.pathname.split('&');
+	var secondLevelLocation = pathArray[3]; // the "tx=string"
+	var tx = secondLevelLocation.split('=');
+	var tid = tx[1];
+	
+	return tid;
+}
+
+
+
 function getPrice() {
   $("#overallPrice").html(sizePrice + mediumPrice);
   //sizePrice=0;
