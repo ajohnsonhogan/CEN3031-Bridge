@@ -23,41 +23,83 @@
 
         <div class="container" id="outer">
             <div class="row vertical-centered" id="middle">
-                <div class="panel panel-default panelheight" id="inner">
-                    <div class="panel-heading">Add to Orders</div>
-                    <div class="panel-body" >
-                        <div ng-controller="mediumController">
-                        <form ng-submit="addMedium(newMedium)">
-                            <label>Name: <input type="text" ng-model="newMedium.name" /></label><br />
-                            <label>Price: <input type="text" ng-model="newMedium.price" /></label><br />
-                            <button class="btn btn-primary" >
-                                <input type="submit"  value="Add Medium" />
-                            </button>
-                          </form>
-                          <ul>
-                            <li ng-repeat="medium in allMediums">
-                              {{medium.name}} ${{medium.price}}
-                              <button ng-click="removeMedium(medium)">Remove</button>
-                            </li>
-                          </ul>
-                        </div>
-                        <div ng-controller="sizeController">
-                            <form ng-submit="addSize(newSize)">
-                                <label>Name: <input type="text" ng-model="newSize.name" /></label><br />
-                                <label>Price: <input type="text" ng-model="newSize.price" /></label><br />
-                                <button class="btn btn-primary" >
-                                    <input type="submit"  value="Add Size" />
-                                </button>
-                            </form>
-                          <ul>
-                            <li ng-repeat="size in allSizes">
-                              {{size.name}} ${{size.price}}
-                              <button ng-click="removeSize(size)">Remove</button>
-                            </li>
-                          </ul>
-                        </div>
+
+              <div id="inner">
+
+                <div class="col-md-6" id="card" ng-controller="mediumController">
+                  <div class="panel panel-default panelheight">
+                    <div class="panel-heading text-center">Edit Medium Options</div>
+                    <div class="panel-body">
+                      <form ng-submit="addMedium(newMedium)">
+                        <table>
+                          <tr>
+                            <td>Name: </td>
+                            <td><input type="text" ng-model="newMedium.name" /></td>
+                          </tr>
+                          <tr>
+                          <tr>
+                            <td style="padding-top: 5px">Price: $</td>
+                            <td style="padding-top: 5px"><input type="number" step=".01" ng-model="newMedium.price" /></td>
+                          </tr>
+                        </table>
+                        <!-- <label>Name: <input type="text" ng-model="newMedium.name" /></label><br/>
+                        <label>Price: $<input type="number" step=".01" ng-model="newMedium.price" /></label><br/> -->
+                        <button class="btn btn-primary" style="margin-top: 10px;">
+                          <input type="submit" value="Add Medium"/>
+                        </button>
+                      </form>
+                      <table class="option-table">
+                        <tr>
+                          <th>Medium name</th>
+                          <th>Price</th> 
+                        </tr>
+                        <tr ng-repeat="medium in allMediums">
+                          <td>{{medium.name}}</td>
+                          <td>${{medium.price}}</td>
+                          <td><button class="btn btn-default" ng-click="removeMedium(medium)">Delete</button></td>
+                        </tr>
+                      </table>
                     </div>
+                  </div>
                 </div>
+
+                <div class="col-md-6" id="card" ng-controller="sizeController">
+                    <div class="panel panel-default panelheight">
+                      <div class="panel-heading text-center">Edit Size Options</div>
+                      <div class="panel-body" ng-controller="sizeController">
+                        <form ng-submit="addSize(newSize)">
+                            <table>
+                                <tr>
+                                  <td>Name: </td>
+                                  <td><input type="text" ng-model="newSize.name" /></td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                  <td style="padding-top: 5px">Price: $</td>
+                                  <td style="padding-top: 5px"><input type="number" step=".01" ng-model="newSize.price" /></td>
+                                </tr>
+                              </table>
+                          <button class="btn btn-primary" style="margin-top: 10px">
+                            <input type="submit" value="Add Size"/>
+                          </button>
+                        </form>
+                        <table class="option-table">
+                          <tr>
+                            <th>Size name</th>
+                            <th>Price</th> 
+                          </tr>
+                          <tr ng-repeat="size in allSizes">
+                            <td>{{size.name}}</td>
+                            <td>${{size.price}}</td>
+                            <td><button class="btn btn-default" ng-click="removeSize(size)">Delete</button></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+
+              </div>
             </div>
         </div>
         

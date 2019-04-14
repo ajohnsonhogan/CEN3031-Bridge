@@ -44,9 +44,9 @@ angular.module('petree').controller('orderController', function($scope) {
         };
   });
 
-  $scope.totalPrice = function () {
-    return $scope.sizePrice + $scope.mediumPrice;
-  };
+//   $scope.totalPrice = function () {
+//     return $scope.sizePrice + $scope.mediumPrice;
+//   };
 
   $scope.addMedium = function(){   
       $scope.mediumOptions.push($scope.newMedium);

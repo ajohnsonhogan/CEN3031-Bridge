@@ -23,11 +23,36 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
     });
   };
 
+$scope.mediumPrice= 0;
+$scope.sizePrice = 0;
+$scope.totalPrice = 0;
+
+$scope.setMedium = function(newMedium) {
+  $scope.selectedMedium = newMedium;
+  $scope.mediumPrice = $scope.selectedMedium.price;
+  $scope.sizePrice = 0;
+  console.log($scope.totalPrice());
+  mediumSelected = true;
+  checkAllSelected();
+}
+
+$scope.$watch('selectedMedium', function() {
+  if ($scope.selectedMedium != undefined) {
+    $scope.mediumPrice = $scope.medium.price;
+  }
+  else {
+    $scope.mediumPrice = 0;
+  }
+});
+
+$scope.totalPrice = function () {
+  return $scope.mediumPrice + $scope.sizePrice;
+};
   
 
 
   }
-])
+]);
 
 
 

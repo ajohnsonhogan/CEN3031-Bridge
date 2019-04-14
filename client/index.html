@@ -45,18 +45,14 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6" id="card" ng-controller="mediumController">
+          <div class="col-md-3 col-sm-6" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 2: Choose Your Medium</div>
               <div class="panel-body">
-                <form>
-                  <!-- <select name="medium" ng-model="model.selectedMedium">
-                    <option disabled>Medium</option>
-                    <option name="medium" ng-repeat="mediumOption in mediumOptions track by $index" ng-value="mediumOption">{{ mediumOption }}</option>
-                  </select> -->
+                <form name="mediumForm">
                   <div ng-repeat="mediumOption in allMediums track by $index">
-                    <label onclick="selectMedium()">
-                      <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/><span style="padding-left:10px">{{ mediumOption.name }}</span>
+                    <label ng-click="setMedium(mediumOption)">
+                      <input type="radio" name="selectedMedium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/><span style="padding-left:10px">{{ mediumOption.name }}</span>
                     </label>
                   </div>
                 </form>
@@ -85,7 +81,7 @@
               <div class="panel-body text-center">
                 <div class="well" style="margin:20px">
                   <span>You have selected:<br></span>
-                  Medium: {{ model.selectedMedium }}<br>
+                  Medium: {{ selectedMedium.name }}<br>
                   Size: {{ model.selectedSize }}<br>
                   Total Price: ${{ totalPrice() }}
                 </div>
