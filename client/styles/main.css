@@ -8,29 +8,29 @@ font-family: 'Open Sans', sans-serif;
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
+} */
 
 /* Set a style for all buttons */
-button {
+/* button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-}
+} */
 
 
-button:hover {
+/* button:hover {
   opacity: 0.8;
-}
+} */
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -181,7 +181,7 @@ body {
     height: 2px;
     bottom: 10px;
     left: 0;
-    background-color: #c1c1c1;
+    background-color: #669999;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -224,6 +224,7 @@ body {
     border:1px solid #ededed;
     display:inline-block;
     vertical-align: top;
+    word-wrap: break-word;
 }
 
 .card-title {
@@ -261,6 +262,15 @@ body {
     box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.2);
 }
 
+
+.search-bar {
+    position: fixed;
+    top:65px;
+    width:75%;
+    left:12.5%;
+    z-index: 100;
+    margin-bottom: 0px;
+}
 
 #card {
     /* max-width:500px; */
@@ -333,7 +343,7 @@ body {
 }
 
 .btn-secondary {
-    margin: 5px auto;
+    margin: 10px auto;
 	display:block;
     background: white;
     color: #333;
@@ -343,7 +353,6 @@ body {
 .btn-secondary:hover {
     background: #f5f5f5;
     color: #333;
-	
 }
 
 .btn-disabled {
@@ -457,39 +466,63 @@ label
 
 .order .well {
     min-height: 200px;
-	min-width:300px;
+	/* min-width:300px; */
     padding: 0;
-	padding-bottom: 5px;
+	padding-bottom: 1px;
     margin: 0;
+    margin-bottom: 20px;
+    max-width: 300px;
+    word-wrap: break-word;
 }
 
 .order-image {
     margin:auto;
     height: auto;
-    max-height: 150px;
+    max-height: 200px;
     overflow: hidden;
-    margin-left: auto;
-	margin-right:auto;
-	margin-top:0;
-	margin-bottom:0;
+    margin: 0 auto;
     display: block;
     border-radius: 4px;
+    text-align: center;
 }
 
 .order-image img {
-    padding-bottom: 15px;
-    height:200px;
+    padding-bottom: 4px;
+    margin-bottom: 11px;
+    max-height:200px;
     width: auto;
-    max-width:initial;
+    max-width:inherit;
 }
 
-.orderHeadline {
+.order-headline {
 	font-weight:bold;
-	white-space:pre;
-	margin-left:10px;
-}
-.orderTable{
-	margin-left:10px;
-	display:block;
+    text-align: center;
+    margin: 15px auto 10px;
+    padding: 0px 5px;
 }
 
+.order-table{
+    display:block;
+    margin: 19px;
+    margin-top: 0px;
+    padding: auto 5px;
+}
+
+.option-table {
+    width: 100%;
+    margin: 10px 0px auto;
+}
+
+.option-table .btn {
+    padding: 3px 5px;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 4px hsla(0, 0%, 0%, 0.3)
+}
+
+.option-table .btn:hover {
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.5)
+}
+
+.option-table td, tr {
+    padding-right: 20px;
+}

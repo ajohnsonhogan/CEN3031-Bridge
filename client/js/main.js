@@ -82,12 +82,6 @@ function preview_image(event)
   checkAllSelected();
 }
 
-function selectMedium() {
-  console.log("medium selected");
-  mediumSelected = true;
-  checkAllSelected();
-}
-
 function selectSize() {
   console.log("size selected");
   sizeSelected = true;
@@ -95,7 +89,7 @@ function selectSize() {
 }
 
 function checkAllSelected() {
-  if (imageSelected && mediumSelected && sizeSelected) {
+  if (imageSelected && mediumSelected) {
     document.getElementById('add_to_cart').style.display = "inline";
     document.getElementById('temp_add_to_cart').style.display = "none";
   }
@@ -119,9 +113,15 @@ function getPrice() {
   //mediumPrice=0;
 }
 
+
+
+
+
 $("#getPrice").click(function() {
   getPrice();
-}); 
+});
+
+
 
 /* popover script */
 $(document).ready(function(){
