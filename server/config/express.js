@@ -7,6 +7,7 @@ var path = require('path'),
     ordersRouter = require('../routes/orders.server.routes');
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
+    //ipnRouter = require('../routes/routes');
       
 module.exports.init = function() {
   //connect to database
@@ -33,6 +34,7 @@ module.exports.init = function() {
   app.use('/orders', ordersRouter);
   app.use('/mediums', mediumsRouter);
   app.use('/sizes', sizesRouter);
+  //app.use('/routes', ipnRouter);
 
   /**TODO 
   Go to homepage for all routes not specified */ 

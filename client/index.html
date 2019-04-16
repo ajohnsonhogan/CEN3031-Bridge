@@ -67,7 +67,7 @@
                 <form>
                   <div ng-repeat="sizeOption in allSizes track by $index">
                     <label onclick="selectSize()">
-                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption }}</span>
+                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption.name }}</span>
                     </label>
                   </div>
                 </form>
@@ -93,7 +93,7 @@
                   <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="business" value="oconnellmj16@gmail.com">
                   <input type="hidden" name="lc" value="US">
-                  <input type="hidden" name="item_name" value=" {{ model.selectedSize }} Photo on {{ model.selectedMedium }}">
+                  <input type="hidden" name="item_name" value=" {{ model.selectedSize }} Photo on {{ model.selectedMedium }} ">
                   <input type="hidden" name="amount" value="{{ totalPrice() }}"> <!-- PASS IN PHP VARIABLE HERE-->
                   <input type="hidden" name="currency_code" value="USD">
                   <input type="hidden" name="button_subtype" value="products">
