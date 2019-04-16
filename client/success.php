@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	  
-    <!-- css style sheets -->
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-    <!-- font awesome icon font -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    
-    <!-- bootstrap style sheet -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-
-    <!-- in file style sheet -->
-    <link rel="stylesheet" href="styles/main.css">
-  </head>  <body ng-app="petreeApp">
-	  
-	  
-
-	Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.
-    
-    
-     <!-- TX: {{ getTransactionID() }} -->
-    <!--cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO -->
-	<!--
-    <form method=post action="https://www.sandbox.paypal.com/cgi-bin/webscr">
-		<input type ="hidden" name="cmd" value="_notify-synch">
-		<input type ="hidden" name="tx" value="6LL139396F504153W">
-		<input type ="hidden" name="at" value="cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO">
-		<input type ="submit" value="PDT">
-    </form> -->
-
     <?php
 $pp_hostname = "www.sandbox.paypal.com"; // Change to www.sandbox.paypal.com to test against sandbox
 // read the post from PayPal system and add 'cmd'
@@ -88,6 +54,42 @@ if(!$res){
 }
  
 ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+	  
+    <!-- css style sheets -->
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- font awesome icon font -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <!-- bootstrap style sheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+    <!-- in file style sheet -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>  <body ng-app="petreeApp">
+	  
+	  
+
+	Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.
+    
+    
+     <!-- TX: {{ getTransactionID() }} -->
+    <!--cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO -->
+	
+    <form method=post action="">
+		<input type ="hidden" name="cmd" value="_notify-synch">
+		<input type ="hidden" name="tx" value="6LL139396F504153W">
+		<input type ="hidden" name="at" value="cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO">
+		<input type ="submit" value="PDT">
+    </form>
+
+
  
 Your transaction has been completed, and a receipt for your purchase has been emailed to you.<br> You may log into your account at <a href='https://www.paypal.com'>www.paypal.com</a> to view details of this transaction.<br>
     
