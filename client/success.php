@@ -31,7 +31,8 @@
 		<input type ="hidden" name="at" value="cVbxvFGl4yiZmgd_uz6Skq_hLefNSLYNjH-CN0y3eNrk73YkIi1QIhdJ7HO">
 		<input type ="submit" value="PDT">
     </form> -->
-    <script>
+
+    <?php
 $pp_hostname = "www.sandbox.paypal.com"; // Change to www.sandbox.paypal.com to test against sandbox
 // read the post from PayPal system and add 'cmd'
 $req = 'cmd=_notify-synch';
@@ -86,8 +87,7 @@ if(!$res){
     }
 }
  
-
-</script>
+?>
  
 Your transaction has been completed, and a receipt for your purchase has been emailed to you.<br> You may log into your account at <a href='https://www.paypal.com'>www.paypal.com</a> to view details of this transaction.<br>
     
