@@ -23,7 +23,7 @@
     <div id="nav-placeholder">
     </div>
  
-    <div class="container" id="outer" ng-controller="orderController">
+    <div class="container" id="outer" ng-controller="mediumController">
       <div class="row vertical-centered" id="middle">
         <div id="inner">
 
@@ -49,14 +49,10 @@
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 2: Choose Your Medium</div>
               <div class="panel-body">
-                <form>
-                  <!-- <select name="medium" ng-model="model.selectedMedium">
-                    <option disabled>Medium</option>
-                    <option name="medium" ng-repeat="mediumOption in mediumOptions track by $index" ng-value="mediumOption">{{ mediumOption }}</option>
-                  </select> -->
-                  <div ng-repeat="mediumOption in mediumOptions track by $index">
-                    <label onclick="selectMedium()">
-                      <input type="radio" name="medium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/><span style="padding-left:10px">{{ mediumOption }}</span>
+                <form name="mediumForm">
+                  <div ng-repeat="mediumOption in allMediums track by $index">
+                    <label ng-click="setMedium(mediumOption)">
+                      <input type="radio" name="selectedMedium" ng-value="mediumOption" ng-model="model.selectedMedium" class="form-radio"/><span style="padding-left:10px">{{ mediumOption.name }}</span>
                     </label>
                   </div>
                 </form>
@@ -69,7 +65,7 @@
               <div class="panel-heading text-center">Step 3: Choose Your Size</div>
               <div class="panel-body">
                 <form>
-                  <div ng-repeat="sizeOption in sizeOptions track by $index">
+                  <div ng-repeat="sizeOption in allSizes track by $index">
                     <label onclick="selectSize()">
                       <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption }}</span>
                     </label>
@@ -85,7 +81,7 @@
               <div class="panel-body text-center">
                 <div class="well" style="margin:20px">
                   <span>You have selected:<br></span>
-                  Medium: {{ model.selectedMedium }}<br>
+                  Medium: {{ selectedMedium.name }}<br>
                   Size: {{ model.selectedSize }}<br>
                   Total Price: ${{ totalPrice() }}
                 </div>
@@ -125,7 +121,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/factories/mediumFactory.js"></script>
     <script src="js/controllers/orderController.js"></script>
+    <script src="js/controllers/mediumController.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
