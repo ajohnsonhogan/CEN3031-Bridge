@@ -21,12 +21,12 @@
         <div id="nav-placeholder">
         </div>
 
-        <div class="container" id="outer">
+        <div class="container" id="outer" ng-controller="mediumController">
             <div class="row vertical-centered" id="middle">
 
               <div id="inner">
 
-                <div class="col-md-6" id="card" ng-controller="mediumController">
+                <div class="col-md-6" id="card" >
                   <div class="panel panel-default panelheight">
                     <div class="panel-heading text-center">Edit Medium Options</div>
                     <div class="panel-body">
@@ -63,10 +63,10 @@
                   </div>
                 </div>
 
-                <div class="col-md-6" id="card" ng-controller="sizeController">
+                <div class="col-md-6" id="card">
                     <div class="panel panel-default panelheight">
                       <div class="panel-heading text-center">Edit Size Options</div>
-                      <div class="panel-body" ng-controller="sizeController">
+                      <div class="panel-body">
                         <form ng-submit="addSize(newSize)">
                             <table>
                                 <tr>

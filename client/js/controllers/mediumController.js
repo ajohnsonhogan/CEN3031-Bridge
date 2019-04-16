@@ -50,22 +50,14 @@ $scope.totalPrice = function () {
 };
   
 
-
-  }
-]);
-
-
-
-angular.module('petree').controller('sizeController', ['$scope', 'Mediums', 
-  function($scope, Sizes) {
-    Sizes.getSizes().then(function(response) {
+    Mediums.getSizes().then(function(response) {
       $scope.allSizes = response.data;
     }, function(error) {
       console.log('Unable to retrieve sizes:', error);
     });
 
   $scope.addSize = function(newSize) {
-    Sizes.createSize(newSize).then(function(response) {
+    Mediums.createSize(newSize).then(function(response) {
          // $scope.allMediums.push({'name':newMedium.name, 'price': newMedium.price});
          // newMedium.name='';
          // newMedium.price='';
@@ -73,10 +65,10 @@ angular.module('petree').controller('sizeController', ['$scope', 'Mediums',
       }, function(error) {
         console.log(error)
       });
-    }
+    };
 
      $scope.removeSize = function(size) {
-      Sizes.deleteSize(size._id).then(function(response) {
+      Mediums.deleteSize(size._id).then(function(response) {
         $scope.allSizes.splice($scope.allSizes.indexOf(size),1);  
       }, function(error) {
         console.log(error);

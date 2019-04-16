@@ -67,7 +67,7 @@
                 <form>
                   <div ng-repeat="sizeOption in allSizes track by $index">
                     <label onclick="selectSize()">
-                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption }}</span>
+                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption.name }}</span>
                     </label>
                   </div>
                 </form>
