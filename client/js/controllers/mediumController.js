@@ -56,7 +56,7 @@ $scope.totalPrice = function () {
 
 
 
-angular.module('petree').controller('sizeController', ['$scope', 'Sizes', 
+angular.module('petree').controller('sizeController', ['$scope', 'Mediums', 
   function($scope, Sizes) {
     Sizes.getSizes().then(function(response) {
       $scope.allSizes = response.data;
