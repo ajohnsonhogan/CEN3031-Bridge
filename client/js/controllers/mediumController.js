@@ -23,57 +23,64 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
     });
   };
 
-$scope.mediumPrice= 0;
-$scope.sizePrice = 0;
-$scope.totalPrice = 0;
-
-$scope.setMedium = function(newMedium) {
-  $scope.selectedMedium = newMedium;
-  $scope.mediumPrice = $scope.selectedMedium.price;
+  $scope.mediumPrice= 0;
   $scope.sizePrice = 0;
-  console.log($scope.totalPrice());
-  mediumSelected = true;
-  checkAllSelected();
-}
+  $scope.totalPrice = 0;
 
-$scope.$watch('selectedMedium', function() {
-  if ($scope.selectedMedium != undefined) {
-    $scope.mediumPrice = $scope.medium.price;
+  $scope.setMedium = function(newMedium) {
+    $scope.selectedMedium = newMedium;
+    $scope.mediumPrice = newMedium.price;
+    console.log($scope.totalPrice());
+    mediumSelected = true;
+    checkAllSelected();
   }
-  else {
-    $scope.mediumPrice = 0;
-  }
-});
 
-$scope.totalPrice = function () {
-  return $scope.mediumPrice + $scope.sizePrice;
-};
+  $scope.setSize = function(newSize) {
+    $scope.selectedSize = newSize;
+    $scope.sizePrice = newSize.price;
+    console.log($scope.totalPrice());
+    sizeSelected = true;
+    checkAllSelected();
+  }
+
+  $scope.$watch('selectedMedium', function() {
+    if ($scope.selectedMedium != undefined) {
+      $scope.mediumPrice = $scope.medium.price;
+    }
+    else {
+      $scope.mediumPrice = 0;
+    }
+  });
+
+  $scope.totalPrice = function () {
+    return $scope.mediumPrice + $scope.sizePrice;
+  };
   
 
-    Mediums.getSizes().then(function(response) {
-      $scope.allSizes = response.data;
-    }, function(error) {
-      console.log('Unable to retrieve sizes:', error);
-    });
+  Mediums.getSizes().then(function(response) {
+    $scope.allSizes = response.data;
+  }, function(error) {
+    console.log('Unable to retrieve sizes:', error);
+  });
 
   $scope.addSize = function(newSize) {
     Mediums.createSize(newSize).then(function(response) {
-         // $scope.allMediums.push({'name':newMedium.name, 'price': newMedium.price});
-         // newMedium.name='';
-         // newMedium.price='';
-         window.location.reload();
+          // $scope.allMediums.push({'name':newMedium.name, 'price': newMedium.price});
+          // newMedium.name='';
+          // newMedium.price='';
+          window.location.reload();
       }, function(error) {
         console.log(error)
       });
     };
 
-     $scope.removeSize = function(size) {
-      Mediums.deleteSize(size._id).then(function(response) {
-        $scope.allSizes.splice($scope.allSizes.indexOf(size),1);  
-      }, function(error) {
-        console.log(error);
-      });
-    };
+  $scope.removeSize = function(size) {
+    Mediums.deleteSize(size._id).then(function(response) {
+      $scope.allSizes.splice($scope.allSizes.indexOf(size),1);  
+    }, function(error) {
+      console.log(error);
+    });
+  };
 
 
   }

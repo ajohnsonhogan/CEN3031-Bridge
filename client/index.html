@@ -27,7 +27,7 @@
       <div class="row vertical-centered" id="middle">
         <div id="inner">
 
-          <div class="col-md-3 col-sm-6" id="card">
+          <div class="col-md-3" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 1: Upload Your Image</div>
               <div class="panel-body">
@@ -45,7 +45,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6" id="card">
+          <div class="col-md-3" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 2: Choose Your Medium</div>
               <div class="panel-body">
@@ -60,14 +60,14 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6" id="card">
+          <div class="col-md-3" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 3: Choose Your Size</div>
               <div class="panel-body">
                 <form>
                   <div ng-repeat="sizeOption in allSizes track by $index">
-                    <label onclick="selectSize()">
-                      <input type="radio" name="size" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption.name }}</span>
+                    <label ng-click="setSize(sizeOption)">
+                      <input type="radio" name="selectedSize" ng-value="sizeOption" ng-model="model.selectedSize" class="form-radio"/><span style="padding-left:10px">{{ sizeOption.name }}</span>
                     </label>
                   </div>
                 </form>
@@ -75,14 +75,14 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6" id="card">
+          <div class="col-md-3" id="card">
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 4: Finish Your Order</div>
               <div class="panel-body text-center">
                 <div class="well" style="margin:20px">
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
-                  Size: {{ model.selectedSize }}<br>
+                  Size: {{ selectedSize.name }}<br>
                   Total Price: ${{ totalPrice() }}
                 </div>
 
@@ -93,7 +93,7 @@
                   <input type="hidden" name="cmd" value="_cart">
                   <input type="hidden" name="business" value="oconnellmj16@gmail.com">
                   <input type="hidden" name="lc" value="US">
-                  <input type="hidden" name="item_name" value=" {{ model.selectedSize }} Photo on {{ model.selectedMedium }} ">
+                  <input type="hidden" name="item_name" value=" {{ selectedSize.name }} Photo on {{ selectedMedium.name }} ">
                   <input type="hidden" name="amount" value="{{ totalPrice() }}"> <!-- PASS IN PHP VARIABLE HERE-->
                   <input type="hidden" name="currency_code" value="USD">
                   <input type="hidden" name="button_subtype" value="products">
@@ -122,7 +122,6 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/factories/mediumFactory.js"></script>
-    <script src="js/controllers/orderController.js"></script>
     <script src="js/controllers/mediumController.js"></script>
     <script src="js/main.js"></script>
   </body>
