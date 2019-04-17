@@ -1,4 +1,4 @@
-document.write('please get here 1');
+// document.write('please get here 1'); GETS HERE
 var request = require('request');
 var endpoint = 'www.sandbox.paypal.com';
 var options = {
