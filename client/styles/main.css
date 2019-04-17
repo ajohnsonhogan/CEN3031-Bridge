@@ -453,15 +453,21 @@ label
     font-size:20px;
 }
 
-.aboutimg {
-	display:block;
-	margin: 10px;
-	margin-bottom:20px;
-	max-width:95%;
-	height:auto;
-}
 .carousel-control.right , .carousel-control.left{
 	background-image:none;
+	
+}
+.carousel { overflow: hidden; }
+.item { overflow: hidden;}
+
+#carouselWrap{
+	display:block;
+	margin:auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	max-width:95%;
+	height:auto;
+	overflow:hidden;
 }
 
 .order .well {
