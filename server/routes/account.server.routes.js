@@ -1,39 +1,44 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path')
+const path = require('path');
 
 const passport = require('passport');
 
-router.get('/signup', (req, res, next) => {
-    res.sendFile(__dirname + '/../../client/register.html');
+router.get('/profile', (req, res, next) => {
+    //res.sendFile(path.resolve(__dirname + '/../../client/register.html'));
+    res.render('profile');
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/../../client/profile.html',
+    successRedirect: '/profile',
     failureRedirect: '/signup',
-    passReqToCallback: true
+    passReqToCallback: false
 }));
 
 router.get('/signin', (req, res, next) => {
-    res.sendFile(__dirname + '/../../client/profile.html');
+    console.log("signin");
+
+    res.sendFile('/../../client/profile.html');
 });
 
 router.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/../../client/profile.html',
+    successRedirect: 'profile',
     failureRedirect: '/signin',
     passReqToCallback: true
 }));
 
-router.get('/profile', (req, res, next) => {
-    res.render('profile');
+router.get('/signup', (req, res, next) => {
+    res.sendFile('signup');
 });
 
-//function isAuthenticated(req, res, next) {
-    //if(req.isAuthenticated()) {
-      //  return next();
-   // }
-    //res.redirect('/');
-//};
+
+
+function isAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+      return next();
+   }
+    res.redirect('/');
+};
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
-angular.module('accounts').controller('accountController', ['$scope', 'Accounts', 
-  function($scope, Accounts) {
+angular.module('accounts').controller('accountController', ['$scope', 'Accounts', '$window', 
+  function($scope, Accounts, $window) {
 
     $scope.detailedInfo = undefined;
 
@@ -11,14 +11,18 @@ angular.module('accounts').controller('accountController', ['$scope', 'Accounts'
         };
            
         console.log($scope.email + " " + $scope.password);
+        // window.location.href = "profile.html"
 
-        Accounts.login(info).then(function(err, response){
-            if(err) throw err;
-            else{
-                console.log('success');
+        Accounts.login(info).then(data => {
+            if(data){
+            window.location.href = "/profile.html";
+            localStorage.setItem('email', $scope.email);
             }
-        });
-
+        }).catch(err => {
+            if(err){
+                console.log("Invalid username or password");
+            }
+        })
     };
 
     $scope.register = function(){
@@ -29,12 +33,16 @@ angular.module('accounts').controller('accountController', ['$scope', 'Accounts'
 
         console.log($scope.email + " " + $scope.password);
 
-        Accounts.register(info).then(function(err, response){
-            if(err) throw err;
-            else{
-                console.log('success');
+        Accounts.register(info).then(data => {
+            if(data){
+            localStorage.setItem('email', $scope.email);
+            window.location.href = "/profile.html";
             }
-        });
+        }).catch(err => {
+            if(err){
+                console.log("Invalid username or password");
+            }
+        })
 
     };
     $scope.user = {

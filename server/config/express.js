@@ -1,4 +1,6 @@
+var cons = require('consolidate');
 var path = require('path'),  
+
     express = require('express'), 
     mongoose = require('mongoose'),
     morgan = require('morgan'),
@@ -14,13 +16,19 @@ module.exports.init = function() {
   //connect to database
   mongoose.connect(config.db.uri);
   
-
+ 
   //initialize app
   var app = express();
   require("../controllers/account.server.controller");
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
+  
+
+  // view engine setup
+  app.engine('html', cons.swig)
+  app.set('views', path.resolve(__dirname + '/../../client/'));
+  app.set('view engine', 'html');
 
   //body parsing middleware 
   app.use(bodyParser.json());
@@ -56,6 +64,15 @@ module.exports.init = function() {
     res.sendFile(path.resolve(__dirname + '/../../client/register.html'));
   });
 
+  app.get('/profile', function(req, res, next){
+    res.sendFile(path.resolve(__dirname + '/../../client/profile.html'));
+  });
+
+  app.post('/auth', function(req, res, next) {
+    // Your logic and then redirect
+    res.redirect(__dirname + '../../client/profile.html');
+  });
+
   /**TODO 
   Go to homepage for all routes not specified */ 
     //app.use(function(request, response, next){
@@ -64,6 +81,9 @@ module.exports.init = function() {
     //return response.redirect('/');
     //next();
   //});
-  
+  app.post('/signin', function(req, res) {
+    console.log(req.body);
+    res.json({ success: true });
+});
   return app;
 };  

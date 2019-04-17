@@ -38,7 +38,7 @@ passport.use('local-signin', new LocalStrategy({
 
     const user = await User.findOne({email: email});
     if(!user) {
-        return done(null, false, req.flash('signinMessage', 'user no found'));
+        return done(null, false, req.flash('signinMessage', 'User no found'));
     }
     if(!user.comparePassword(password)) {
         return done(null, false, req.flash('signinMessage', 'Password Incorect'));
