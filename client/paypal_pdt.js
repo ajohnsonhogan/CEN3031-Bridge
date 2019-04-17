@@ -11,5 +11,6 @@ var options = {
   }
 };
 request.post('https://' + endpoint + '/cgi-bin/webscr', options, function(e, r, body) {
+	document.getElementById("demo").innerHTML = console.log(body);
   return console.log(body);
 });
