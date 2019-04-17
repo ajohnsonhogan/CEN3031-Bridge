@@ -1,3 +1,4 @@
+document.write('please get here 1');
 var request = require('request');
 var endpoint = 'www.sandbox.paypal.com';
 var options = {
@@ -11,6 +12,6 @@ var options = {
   }
 };
 request.post('https://' + endpoint + '/cgi-bin/webscr', options, function(e, r, body) {
-	document.write('please get here');
+	document.write('please get here 2');
   return console.log(body);
 });
