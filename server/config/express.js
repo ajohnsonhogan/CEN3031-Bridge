@@ -7,7 +7,7 @@ var path = require('path'),
     ordersRouter = require('../routes/orders.server.routes');
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
-    routes = require('../routes/routes')
+    routes = require('../routes/routes');
     //ipnRouter = require('../routes/routes');
       
 module.exports.init = function() {
@@ -35,7 +35,7 @@ module.exports.init = function() {
   app.use('/orders', ordersRouter);
   app.use('/mediums', mediumsRouter);
   app.use('/sizes', sizesRouter);
-  app.use('/routes', routes);
+  // app.use('/routes', routes);
   //app.use('/routes', ipnRouter);
 
   /**TODO 
@@ -48,5 +48,5 @@ module.exports.init = function() {
     //next();
   //});
   
-  return app;
+  return routes(app);
 };  
