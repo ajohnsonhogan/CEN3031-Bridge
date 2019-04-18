@@ -20,35 +20,41 @@
         <title>My Account - Petree's Prints</title>    
 
     </head>
-    <body ng-app="directoryApp">
-
-        <!-- nav bar -->
-        <div id="nav-placeholder">
-        </div>
-
-
-        <div class="container" id="outer">
-            <div class="row vertical-centered" id="middle">
-                <div class="panel panel-default panelheight" id="inner">
-                    <div class="panel-heading">My Account</div>
-                    <div class="panel-body">
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                
-                            </div>
-                        </div>
-                    
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-        <!-- javascript files-->
+<class="row">
+    <body ng-app="petreeApp" ng-controller="accountController">       
+            <div class="container registration-container">
+                    <div class="row">
+                        <div class="span6">
+                            <form class="form-horizontal" id="registerHere">
+                            
+                                <font size="+4">Login</font>
+                
+                                <div class="control-group">
+                                    <form (submit)= "login()">
+                                    <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email" class="form-control" ng-model="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" placeholder="Password" class="form-control" ng-model="password"> 
+                                    </div>
+                                    
+                                <div class="control-group">
+                                    <label class="control-label"></label>
+                                    <div class="controls">
+                                        <button type="submit" class="btn btn-success" ng-click = "login()">Submit</button>
+                                        
+                                            Don't have an account? <a href="./register.html" >Register</button></a></p>
+                                    </div>
+                                </div>
+                            </form>
+                                </div>
+                                </form>
+                                </div>
+                                </div>
+                                </div>
+                                </class>
+         
+            
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
