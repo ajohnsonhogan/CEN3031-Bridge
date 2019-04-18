@@ -35,6 +35,7 @@ module.exports.init = function() {
   app.use('/orders', ordersRouter);
   app.use('/mediums', mediumsRouter);
   app.use('/sizes', sizesRouter);
+  app.use('/routes', routes);
   //app.use('/routes', ipnRouter);
 
   /**TODO 
@@ -47,5 +48,5 @@ module.exports.init = function() {
     //next();
   //});
   
-  return routes(app);
+  return app;
 };  
