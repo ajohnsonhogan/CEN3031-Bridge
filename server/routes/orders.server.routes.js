@@ -1,7 +1,7 @@
 
 /* Dependencies */
 var orders = require('../controllers/orders.server.controller.js'), 
-    express = require('express'),
+    express = require('express'), 
     router = express.Router();
 
 /* 
