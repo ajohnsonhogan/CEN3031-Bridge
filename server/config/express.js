@@ -7,6 +7,7 @@ var path = require('path'),
     ordersRouter = require('../routes/orders.server.routes');
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
+    routes = require('../routes/routes')
     //ipnRouter = require('../routes/routes');
       
 module.exports.init = function() {
@@ -41,6 +42,7 @@ module.exports.init = function() {
     //app.use(function(request, response, next){
     app.use('/', express.static('client/index.html'));
     
+    routes(app);
     //return response.redirect('/');
     //next();
   //});
