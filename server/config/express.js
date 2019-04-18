@@ -42,10 +42,10 @@ module.exports.init = function() {
     //app.use(function(request, response, next){
     app.use('/', express.static('client/index.html'));
     
-    routes(app);
+    //routes(app);
     //return response.redirect('/');
     //next();
   //});
   
-  return app;
+  return routes(app);
 };  
