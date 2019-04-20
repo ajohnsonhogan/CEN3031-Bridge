@@ -7,8 +7,7 @@ var path = require('path'),
     ordersRouter = require('../routes/orders.server.routes');
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
-    // routes = require('../routes/routes');
-    //ipnRouter = require('../routes/routes');
+var adminconfig = "1234";
       
 module.exports.init = function() {
   //connect to database
@@ -28,7 +27,8 @@ module.exports.init = function() {
   Serve static files */
   //app.use('/', express.static(__dirname + '/../../client'));
   //app.use('/public', express.static(__dirname + '/../../public'));
-  app.use(express.static('client'));
+  
+
 
   /**TODO 
   Use the listings router for requests to the api */
@@ -37,6 +37,25 @@ module.exports.init = function() {
   app.use('/sizes', sizesRouter);
   // app.use('/routes', routes);
   //app.use('/routes', ipnRouter);
+  app.use('/business.html', function(req, res){
+	  if(req.query.adminID == adminconfig){
+		  res.sendFile(path.join(__dirname, '../../client', 'business.html'));
+	  }else{
+		  res.redirect('back');
+	  }
+  });
+  app.use('/adminpage.html', function(req, res){
+	  let adminID = req.query.adminID;
+	  //res.end(adminID);
+ 	  if(adminID == adminconfig){
+		  
+		  res.sendFile(path.join(__dirname, '../../client', 'adminpage.html'));
+	  }else{
+		  res.redirect('back');
+	  } 
+  });
+     app.use(express.static('client'));
+ 
 
   /**TODO 
   Go to homepage for all routes not specified */ 

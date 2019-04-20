@@ -23,7 +23,42 @@
     <body ng-app="petreeApp" class='ng-scope'>
 
         <!-- nav bar -->
-        <div id="nav-placeholder">
+        <div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span> 
+					</button>
+					<a class="navbar-brand brandname" href="./">Petree's <i class="fab fa-pagelines"></i> Prints</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navlinks">
+						<!--remove these two for non-admin-->
+						<li><a href="business.html?adminID=1234">Order Dashboard</a></li>
+						<li><a href="adminpage.html?adminID=1234">Order Options</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a><form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+							<input type="hidden" name="cmd" value="_cart">
+							<input type="hidden" name="business" value="oconnellmj16@gmail.com">
+							<input type="hidden" name="display" value="1">
+							<input type="submit" name="submit" value="Cart" style="font-weight:400; font-size:18px">
+						</form></a></li>
+						<li class="dropdown">
+							<a href="account.html">Account</a>
+							<div class="dropdown-content">
+								<a href="#">Orders</a>
+								<a href="#">Logout</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="background">
+		</div>
         </div>
 
         <div class="container ng-scope"  id="outer" ng-controller="businessController">
@@ -138,10 +173,5 @@
 		<script src="js/controllers/businessController.js"></script>
 		<script src="js/factories/orderFactory.js"></script>
 		<script src="js/main.js"></script>
-        <script>
-            $.get("nav.html", function(data){
-                $("#nav-placeholder").replaceWith(data);
-            });
-        </script>
     </body>
 </html>

@@ -10,9 +10,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navlinks">
-				<!--remove these two for non-admin-->
-                <li><a href="business.html">Order Dashboard</a></li>
-                <li><a href="adminpage.html">Order Options</a></li>
+
 				
                 <li><a href="./">Order</a></li>
                 <li><a href="about.html">About</a></li>
@@ -27,6 +25,7 @@
                     <div class="dropdown-content">
                         <a href="#">Orders</a>
                         <a href="#">Logout</a>
+						<a href='#'><span onclick="showLogin()" id="adminLogin">Admin</span></a>
                     </div>
                 </li>
             </ul>
@@ -34,4 +33,15 @@
     </div>
 </nav>
 <div class="background">
+</div>
+<div id="adminModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <form target="_self" action="/business.html">
+		<input type="password" class="modalID" name="adminID" placeholder="Enter ID..." autocomplete="off" required> </input>
+		<button class="btn btn-primary modalSubmit"><input type="submit" value="Login"></input></button>
+	</form>
+  </div>
+
 </div>
