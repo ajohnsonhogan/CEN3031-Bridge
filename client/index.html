@@ -87,7 +87,8 @@
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
                   Size: {{ selectedSize.name }}<br>
-                  Total Price: ${{ totalPrice() }}
+                  Total Price: {{ totalPrice() }} <!-- <br>
+                  STRING: {{ strPrice() }} -->
                 </div>
     
               
@@ -106,7 +107,9 @@
     createOrder: function(data, actions) {
       return actions.order.create({
         purchase_units: [{
+			
           amount: {
+            currency_code: 'USD',
             value: '0.01'
           }
         }]
@@ -123,6 +126,7 @@
           },
           body: JSON.stringify({
             orderID: data.orderID
+            // name + email + address + order_name + order_url
             
           })
         });
