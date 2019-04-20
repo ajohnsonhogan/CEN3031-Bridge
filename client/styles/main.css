@@ -384,6 +384,7 @@ label
   max-height: 200px;
   max-width: 350px;
   /* position: fixed; */
+  overflow:hidden;
   left: inherit;
   z-index: 1;
 }
@@ -405,6 +406,9 @@ label
 
 .order-image:hover {
     overflow: visible;
+}
+.background-image:hover {
+    overflow: hidden;
 }
 
 .order-image img:hover {
