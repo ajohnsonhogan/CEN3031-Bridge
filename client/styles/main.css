@@ -366,7 +366,7 @@ label
     position: relative;
     margin: 0 auto 0;
     overflow: hidden;
-    margin: - auto;
+    margin: 0 auto;
     display: block;
     border-radius: 4px;
     height: 200px;
@@ -376,35 +376,30 @@ label
 
 .background-image {
     background-size: 100%;
-  display: block;
-  filter: blur(10px);
-  -webkit-filter: blur(10px);
-  width:100%;
-  min-height:100%;
-  max-height: 200px;
-  max-width: 350px;
-  /* position: fixed; */
-  overflow:hidden;
-  left: inherit;
-  z-index: 1;
+    display: block;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    width:100%;
+    min-height:100%;
+    max-height: 200px;
+    max-width: 350px;
+    left: inherit;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .order-image img {
-    /* width: 100%; */
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
     margin: auto;
     display: block;
     height:90%;
-    /* padding-bottom: 4px; */
-    /* filter: blur(50px); */
-    margin-bottom: 11px;
     margin-top: -190px;
     z-index: 2;
 }
 
-.order-image:hover {
+.order-image a:hover {
     overflow: visible;
 }
 .background-image:hover {
@@ -412,8 +407,8 @@ label
 }
 
 .order-image img:hover {
-    z-index: 100;
-    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.4);
+    z-index: 50;
+    box-shadow: 0px 2px 6px hsla(0, 0%, 0%, 0.3);
 }
 
 .order-headline {

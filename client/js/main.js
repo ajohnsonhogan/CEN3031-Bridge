@@ -97,7 +97,7 @@ function selectSize() {
 
 function checkAllSelected() {
   if (imageSelected && mediumSelected && sizeSelected) {
-    document.getElementById('add_to_cart').style.display = "inline";
+    document.getElementById('paypal-button-container').style.display = "inline";
     document.getElementById('temp_add_to_cart').style.display = "none";
   }
 }

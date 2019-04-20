@@ -8,6 +8,10 @@ var orders = require('../controllers/orders.server.controller.js'),
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
  */
+
+router.route('/')
+  .post(orders.create);
+
  router.route('/getNew')
   .get(orders.listNew);
   

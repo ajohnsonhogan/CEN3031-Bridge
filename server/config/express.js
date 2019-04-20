@@ -8,6 +8,10 @@ var path = require('path'),
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
 var adminconfig = "1234";
+    ipn = require('express-ipn');
+    // routesIPN = require('../routes/routes');
+    //ipnRouter = require('../routes/routes');
+    
       
 module.exports.init = function() {
   //connect to database
@@ -21,8 +25,7 @@ module.exports.init = function() {
 
   //body parsing middleware 
   app.use(bodyParser.json());
-
-
+  
   /**TODO
   Serve static files */
   //app.use('/', express.static(__dirname + '/../../client'));
