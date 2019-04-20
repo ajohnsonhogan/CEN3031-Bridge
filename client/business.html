@@ -28,106 +28,105 @@
 
         <div class="container ng-scope"  id="outer" ng-controller="businessController">
             <div class="row vertical-centered" id="middle">
-				<div id="inner" style="width:75%;margin-top:80px;position:relative;">
-				<div class="panel panel-default search-bar">
-                    <div class="panel-heading">
-					<input type="text" class="form-control" placeholder="Search by name, order ID, size, etc." ng-model="query">
+				<div class="col-md-1">&nbsp;</div>
+				<div class="col-md-10" id="inner" style="margin-top:69px;position:relative;">
+					<div class="panel panel-default search-bar">
+						<div class="panel-heading">
+						<input type="text" class="form-control" placeholder="Search by name, order ID, size, etc." ng-model="query">
+						</div>
 					</div>
-				</div>
-				
-                <div class="panel panel-default">
-                    <div class="panel-heading">Unstarted Orders</div>
-                    <div class="panel-body">
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">Unstarted Orders</div>
+						<div class="panel-body">
+							<!-- repeat here -->
+							
+							<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in newOrders | orderBy: created_at | filter: query">
+								<div class="well">
+									<div class="order-image">
+										<div class="background-image" style="background-image:url('http://{{order.image}}');"></div>
+										<a target="_blank" href="http://{{order.image}}"><img ng-src="http://{{order.image}}" alt="your image"/></a>
+									</div>
+									<div class="order-headline">
+										{{order.size}}  |  {{order.medium}}  |  {{order.price}}
+									</div>
+									<div class="order-table">
+										<div><b>Name:</b> {{order.name}}</div>
+										<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+										<div><b>Email Address:</b> {{order.email}}</div>
+										<div><b>Shipping Address:</b> {{order.address}}</div>
+										<div><b>Order ID:</b> {{order._id}}</div>
+									</div>
+									<span class="clear"></span>
+									<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Open Order</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">Open Orders</div>
+						<div class="panel-body">
 						<!-- repeat here -->
 						
-						<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in newOrders | orderBy: created_at | filter: query">
-							<div class="well">
-								<div class="order-image">
-									<a target="_blank" href="http://{{order.image}}"><img src="http://{{order.image}}" alt="your image"/></a>
+							<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in openOrders | orderBy: created_at | filter: query">
+								<div class="well ">
+									<div class="order-image">
+										<div class="background-image" style="background-image:url('http://{{order.image}}');"></div>
+										<a target="_blank" href="http://{{order.image}}"><img src="http://{{order.image}}" alt="your image"/></a>
+									</div>
+									<div class="order-headline">
+										{{order.size}}  |  {{order.medium}}  |  {{order.price}}
+									</div>
+									<div class="order-table">
+										<div><b>Name:</b> {{order.name}}</div>
+										<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+										<div><b>Email Address:</b> {{order.email}}</div>
+										<div><b>Shipping Address:</b> {{order.address}}</div>
+										<div><b>Order ID:</b> {{order._id}}</div>
+									</div>
+									<span class="clear"></span>
+									<button class="btn btn-secondary" type="button" ng-click="markNew(order._id)">Mark as Unstarted</button>
+									<a href="mailto:{{order.email}}?subject=Your%20order%20from%20Petree's%20Prints%20is%20on%20the%20way!&body=Hi%20{{order.name}},%0A%0AYour%20order%20is%20on%20the%20way!%0A%0AOrder%20Information:%0A%20%20%20%20Order%20Date:%20{{order.created_at | date : longDate}}%0A%20%20%20%20Order%20Size:%20{{order.size}}%0A%20%20%20%20Order%20Medium:%20{{order.medium}}%0A%20%20%20%20Order%20Price:%20{{order.price}}%0A%0AYour%20Order%20ID%20is%20{{order._id}}.%20Save%20this%20ID%20for%20future%20reference%20if%20you%20have%20any%20questions%20about%20your%20order.%0ALook%20out%20for%20a%20package%20soon!%0A%0A-Petree's%20Prints">
+									<button class="btn btn-secondary" type="button">Send Shipping Notification</button></a>
+									<button class="btn btn-secondary" type="button" ng-click="markClosed(order._id)">Mark as Closed</button>
 								</div>
-								<div class="order-headline">
-									{{order.size}}  |  {{order.medium}}  |  {{order.price}}
-								</div>
-								<div class="order-table">
-									<div><b>Name:</b> {{order.name}}</div>
-									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
-									<div><b>Email Address:</b> {{order.email}}</div>
-									<div><b>Shipping Address:</b> {{order.address}}</div>
-									<div><b>Order ID:</b> {{order._id}}</div>
-								</div>
-								<span class="clear"></span>
-								<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Open Order</button>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="panel panel-default">
-					
-					<div class="panel-heading">Open Orders</div>
-					<div class="panel-body">
-					<!-- repeat here -->
-					
-						<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in openOrders | orderBy: created_at | filter: query">
-							<div class="well ">
-								<div class="order-image">
-									<a target="_blank" href="http://{{order.image}}"><img src="http://{{order.image}}" alt="your image"/></a>
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">Closed Orders</div>
+						<div class="panel-body">
+							<!-- repeat here -->
+
+							<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in closedOrders | orderBy:'created_at':true | filter: query ">
+								<div class="well">
+									<div class="order-image">
+										<div class="background-image" style="background-image:url('http://{{order.image}}');"></div>
+										<a target="_blank" href="http://{{order.image}}"><img src="http://{{order.image}}" alt="your image"/></a>
+									</div>
+									<div class="order-headline">
+										{{order.size}}  |  {{order.medium}}  |  {{order.price}}
+									</div>
+									<div class="order-table">
+										<div><b>Name:</b> {{order.name}}</div>
+										<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
+										<div><b>Email Address:</b> {{order.email}}</div>
+										<div><b>Shipping Address:</b> {{order.address}}</div>
+										<div><b>Order ID:</b> {{order._id}}</div>
+									</div>
+									<span class="clear"></span>
+									<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Re-open Order</button>
 								</div>
-								<div class="order-headline">
-									{{order.size}}  |  {{order.medium}}  |  {{order.price}}
-								</div>
-								<div class="order-table">
-									<div><b>Name:</b> {{order.name}}</div>
-									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
-									<div><b>Email Address:</b> {{order.email}}</div>
-									<div><b>Shipping Address:</b> {{order.address}}</div>
-									<div><b>Order ID:</b> {{order._id}}</div>
-								</div>
-								<span class="clear"></span>
-								<button class="btn btn-secondary" type="button" ng-click="markNew(order._id)">Mark as Unstarted</button>
-								<a href="mailto:{{order.email}}?subject=Your%20order%20from%20Petree's%20Prints%20is%20on%20the%20way!&body=Hi%20{{order.name}},%0A%0AYour%20order%20is%20on%20the%20way!%0A%0AOrder%20Information:%0A%20%20%20%20Order%20Date:%20{{order.created_at | date : longDate}}%0A%20%20%20%20Order%20Size:%20{{order.size}}%0A%20%20%20%20Order%20Medium:%20{{order.medium}}%0A%20%20%20%20Order%20Price:%20{{order.price}}%0A%0AYour%20Order%20ID%20is%20{{order._id}}.%20Save%20this%20ID%20for%20future%20reference%20if%20you%20have%20any%20questions%20about%20your%20order.%0ALook%20out%20for%20a%20package%20soon!%0A%0A-Petree's%20Prints">
-								<button class="btn btn-secondary" type="button">Send Shipping Notification</button></a>
-								<button class="btn btn-secondary" type="button" ng-click="markClosed(order._id)">Mark as Closed</button>
-							</div>
+							</div>					
+										
+						
 						</div>
 					</div>
 				</div>
-
-				<div class="panel panel-default">
-					
-					<div class="panel-heading">Closed Orders</div>
-					<div class="panel-body">
-						<!-- repeat here -->
-
-						<div class="col-md-4 col-sm-6 col-xs-12 order" ng-repeat="order in closedOrders | orderBy:'created_at':true | filter: query ">
-							<div class="well">
-								<div class="order-image">
-									<a target="_blank" href="http://{{order.image}}"><img src="http://{{order.image}}" alt="your image"/></a>
-								</div>
-								<div class="order-headline">
-									{{order.size}}  |  {{order.medium}}  |  {{order.price}}
-								</div>
-								<div class="order-table">
-									<div><b>Name:</b> {{order.name}}</div>
-									<div><b>Order Date:</b> {{order.created_at | date : longDate}}</div>
-									<div><b>Email Address:</b> {{order.email}}</div>
-									<div><b>Shipping Address:</b> {{order.address}}</div>
-									<div><b>Order ID:</b> {{order._id}}</div>
-								</div>
-								<span class="clear"></span>
-								<button class="btn btn-secondary" type="button" ng-click="markOpen(order._id)">Re-open Order</button>
-							</div>
-						</div>					
-									
-					
-					</div>
-					
-					
-				</div>
-			
-					
-			
-			</div>
             </div>
         
 

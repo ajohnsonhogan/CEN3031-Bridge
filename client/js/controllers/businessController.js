@@ -45,7 +45,7 @@ angular.module('petree').controller('businessController', ['$scope', '$window','
         console.log('Unable to create order:', error);
       });
     };
-    
-  }
+  
+}
 ]);
 
