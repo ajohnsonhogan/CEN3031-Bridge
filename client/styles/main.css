@@ -7,59 +7,6 @@ font-family: 'Open Sans', sans-serif;
 
 body {font-family: Arial, Helvetica, sans-serif;}
 
-/* Full-width input fields */
-/* input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-} */
-
-/* Set a style for all buttons */
-/* button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-} */
-
-
-/* button:hover {
-  opacity: 0.8;
-} */
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
 body {
     font-family: 'Open Sans', sans-serif;
     background: url("../images/tree2.jpg") no-repeat center center fixed; 
@@ -197,10 +144,14 @@ body {
 .search-bar {
     position: fixed;
     top:65px;
-    width:75%;
-    left:12.5%;
+    width:85%;
+    left:7.5%;
     z-index: 100;
     margin-bottom: 0px;
+}
+
+.search-bar .panel-heading {
+    border-radius: 3px;
 }
 
 #card {
@@ -397,32 +348,57 @@ label
 
 .order .well {
     min-height: 200px;
-	/* min-width:300px; */
     padding: 0;
 	padding-bottom: 1px;
-    margin: 0;
+    margin: 0 auto;
     margin-bottom: 20px;
-    max-width: 300px;
+    max-width: 350px;
     word-wrap: break-word;
 }
 
 .order-image {
-    margin:auto;
-    height: auto;
-    max-height: 200px;
+    position: relative;
+    margin: 0 auto 0;
     overflow: hidden;
-    margin: 0 auto;
+    margin: - auto;
     display: block;
     border-radius: 4px;
-    text-align: center;
+    height: 200px;
+    width: 100%;
+    transition: all 2s;
+}
+
+.background-image {
+    background-size: 100%;
+  display: block;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  width:100%;
+  min-height:100%;
+  max-height: 200px;
+  max-width: 350px;
+  /* position: fixed; */
+  left: inherit;
+  z-index: 1;
 }
 
 .order-image img {
-    padding-bottom: 4px;
+    /* width: 100%; */
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    margin: auto;
+    display: block;
+    height:90%;
+    /* padding-bottom: 4px; */
+    /* filter: blur(50px); */
     margin-bottom: 11px;
-    max-height:200px;
-    width: auto;
-    max-width:inherit;
+    margin-top: -190px;
+    z-index: 2;
+}
+
+.order-image:hover {
+    overflow: visible;
 }
 
 .order-headline {
