@@ -10,13 +10,20 @@ $('input[name="picSize"]').click(function(e) {
   }
 });
 
-var modal = document.getElementById('id01');
+
+
+
+// When the user clicks on the button, open the modal 
+var showLogin = function() {
+	document.getElementById('adminModal').style.display = "block";
+	document.getElementsByClassName('modalID')[0].focus();
+}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+  if (event.target == document.getElementById('adminModal')) {
+    document.getElementById('adminModal').style.display = "none";
+  }
 }
 
 $('#sizeText').hide();
@@ -90,7 +97,7 @@ function selectSize() {
 
 function checkAllSelected() {
   if (imageSelected && mediumSelected && sizeSelected) {
-    document.getElementById('add_to_cart').style.display = "inline";
+    document.getElementById('paypal-button-container').style.display = "inline";
     document.getElementById('temp_add_to_cart').style.display = "none";
   }
 }

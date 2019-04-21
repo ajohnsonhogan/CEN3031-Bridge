@@ -1,6 +1,6 @@
 angular.module('petree').controller('businessController', ['$scope', '$window','Orders', 
   function($scope, $window, Orders) {
-	console.log("success");
+	$scope.adminID="1234";
     Orders.getNew().then(function(response) {
       $scope.newOrders = response.data;
     }, function(error) {
