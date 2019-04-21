@@ -3,15 +3,12 @@ var path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
     config = require('./config'),
     ordersRouter = require('../routes/orders.server.routes');
     mediumsRouter = require('../routes/mediums.server.routes');
     sizesRouter = require('../routes/sizes.server.routes');
-var adminconfig = "1234";
-    ipn = require('express-ipn');
-    // routesIPN = require('../routes/routes');
-    //ipnRouter = require('../routes/routes');
-    
+var adminconfig = "gPmtMcO9Jf3hNKS0zcMuH7NhkHKlmDPwJxzcKrlD";
       
 module.exports.init = function() {
   //connect to database
@@ -23,9 +20,12 @@ module.exports.init = function() {
   //enable request logging for development debugging
   app.use(morgan('dev'));
 
+
   //body parsing middleware 
   app.use(bodyParser.json());
-  
+  app.use(cookieParser());
+
+  //not new
   /**TODO
   Serve static files */
   //app.use('/', express.static(__dirname + '/../../client'));
@@ -41,17 +41,14 @@ module.exports.init = function() {
   // app.use('/routes', routes);
   //app.use('/routes', ipnRouter);
   app.use('/business.html', function(req, res){
-	  if(req.query.adminID == adminconfig){
+	  if(req.cookies.adminID == adminconfig){ //TODO cookie verification
 		  res.sendFile(path.join(__dirname, '../../client', 'business.html'));
 	  }else{
 		  res.redirect('back');
 	  }
   });
   app.use('/adminpage.html', function(req, res){
-	  let adminID = req.query.adminID;
-	  //res.end(adminID);
- 	  if(adminID == adminconfig){
-		  
+ 	  if(req.cookies.adminID == adminconfig){ //TODO cookie verification
 		  res.sendFile(path.join(__dirname, '../../client', 'adminpage.html'));
 	  }else{
 		  res.redirect('back');
@@ -59,6 +56,8 @@ module.exports.init = function() {
   });
      app.use(express.static('client'));
  
+ 
+
 
   /**TODO 
   Go to homepage for all routes not specified */ 

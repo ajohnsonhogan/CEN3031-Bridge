@@ -41,8 +41,8 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <form target="_self" action="/business.html">
-		<input type="password" class="modalID" name="adminID" placeholder="Enter ID..." autocomplete="off" required> </input>
+    <form target="_self" method="POST" action="/business.html" onsubmit="return adminLogin()">
+		<input type="password" class="modalID" name="adminID" id="inputID" placeholder="Enter ID..." autocomplete="off" required> </input>
 		<button class="btn btn-primary modalSubmit"><input type="submit" value="Login"></input></button>
 	</form>
   </div>
