@@ -23,13 +23,8 @@
                     <input type="hidden" name="notify_url" value="https://petrees-prints.herokuapp.com/ipn.html">
                     <input type="submit" name="submit" value="Cart" style="font-weight:400; font-size:18px">
                 </form></a></li> -->
-                <li class="dropdown"> 
-                    <a href="account.html">Account</a>
-                    <div class="dropdown-content">
-                        <a href="#">Orders</a>
-                        <a href="#">Logout</a>
-						<a href='#'><span onclick="showLogin()" id="adminLogin">Admin</span></a>
-                    </div>
+                <li> 
+                    <a onclick="showLogin()" id="adminLogin" href='#'>Admin</a>
                 </li>
             </ul>
         </div>
@@ -41,8 +36,8 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <form target="_self" action="/business.html">
-		<input type="password" class="modalID" name="adminID" placeholder="Enter ID..." autocomplete="off" required> </input>
+    <form target="_self" method="POST" action="/business.html" onsubmit="return adminLogin()">
+		<input type="password" class="modalID" name="adminID" id="inputID" placeholder="Enter ID..." autocomplete="off" required> </input>
 		<button class="btn btn-primary modalSubmit"><input type="submit" value="Login"></input></button>
 	</form>
   </div>

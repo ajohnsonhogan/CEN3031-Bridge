@@ -30,6 +30,7 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
 
   $scope.setMedium = function(newMedium) {
     $scope.selectedMedium = newMedium;
+    medium = newMedium;
     $scope.mediumPrice = newMedium.price;
     console.log($scope.totalPrice());
     mediumSelected = true;
@@ -38,6 +39,7 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
 
   $scope.setSize = function(newSize) {
     $scope.selectedSize = newSize;
+    size = newSize;
     $scope.sizePrice = newSize.price;
     console.log($scope.totalPrice());
     sizeSelected = true;
@@ -54,7 +56,8 @@ angular.module('petree').controller('mediumController', ['$scope', 'Mediums',
   });
 
   $scope.totalPrice = function () {
-    return $scope.mediumPrice + $scope.sizePrice;
+    totalPrice = $scope.mediumPrice + $scope.sizePrice;
+    return totalPrice;
   };
   
   $scope.strPrice = function () {
