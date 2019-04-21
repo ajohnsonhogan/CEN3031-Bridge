@@ -40,15 +40,22 @@ module.exports.init = function() {
   app.use('/sizes', sizesRouter);
   // app.use('/routes', routes);
   //app.use('/routes', ipnRouter);
+  app.use('/admin', function(req, res){
+	 if(req.query.adminID == adminconfig){
+			res.end("Admin");
+	 }else{
+		 res.end("User");
+	 }
+  });
   app.use('/business.html', function(req, res){
-	  if(req.cookies.adminID == adminconfig){ //TODO cookie verification
+	  if(req.cookies.adminID == adminconfig){
 		  res.sendFile(path.join(__dirname, '../../client', 'business.html'));
 	  }else{
 		  res.redirect('back');
 	  }
   });
   app.use('/adminpage.html', function(req, res){
- 	  if(req.cookies.adminID == adminconfig){ //TODO cookie verification
+ 	  if(req.cookies.adminID == adminconfig){
 		  res.sendFile(path.join(__dirname, '../../client', 'adminpage.html'));
 	  }else{
 		  res.redirect('back');

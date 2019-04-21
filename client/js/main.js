@@ -12,20 +12,6 @@ $('input[name="picSize"]').click(function(e) {
 
 
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
 var  setCookie = function(cname, cvalue, exdays) {
   var d = new Date();
@@ -36,15 +22,21 @@ var  setCookie = function(cname, cvalue, exdays) {
 var adminLogin = function() {
 	var adminID = document.getElementById("inputID").value;
 	if (adminID != "" && adminID != null) {
-	  setCookie("adminID", adminID, 10);
+	  setCookie("adminID", adminID);
 	}
 	return true;
 }
 
 // When the user clicks on the button, open the modal 
 var showLogin = function() {
+	var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", '/admin?'+ document.cookie, false ); // false for synchronous request
+	console.log('/admin?'+ document.cookie);	
+    xmlHttp.send(null);
+	console.log(xmlHttp.responseText);
+if(xmlHttp.responseText == "Admin"){ window.location.href = "/business.html"}else{
 	document.getElementById('adminModal').style.display = "block";
-	document.getElementsByClassName('modalID')[0].focus();
+	document.getElementsByClassName('modalID')[0].focus();}
 }
 
 // When the user clicks anywhere outside of the modal, close it
