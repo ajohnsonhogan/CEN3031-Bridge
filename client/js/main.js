@@ -13,10 +13,30 @@ $('input[name="picSize"]').click(function(e) {
 
 
 
+var  setCookie = function(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+var adminLogin = function() {
+	var adminID = document.getElementById("inputID").value;
+	if (adminID != "" && adminID != null) {
+	  setCookie("adminID", adminID);
+	}
+	return true;
+}
+
 // When the user clicks on the button, open the modal 
 var showLogin = function() {
+	var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", '/admin?'+ document.cookie, false ); // false for synchronous request
+	console.log('/admin?'+ document.cookie);	
+    xmlHttp.send(null);
+	console.log(xmlHttp.responseText);
+if(xmlHttp.responseText == "Admin"){ window.location.href = "/business.html"}else{
 	document.getElementById('adminModal').style.display = "block";
-	document.getElementsByClassName('modalID')[0].focus();
+	document.getElementsByClassName('modalID')[0].focus();}
 }
 
 // When the user clicks anywhere outside of the modal, close it
