@@ -99,17 +99,13 @@
                 <div id="paypal-button-container" style="display:none"></div>
                 
                 <script>
-                  // paypal.Buttons().render('#paypal-button-container');
-                </script>
-                
-                <script>
                   paypal.Buttons({
                     createOrder: function(data, actions) {
                       return actions.order.create({
                         purchase_units: [{
                           amount: {
                             currency_code: 'USD',
-                            value: '0.01'
+                            value: totalPrice
                           }
                         }]
                       });
@@ -133,9 +129,9 @@
                             name: details.payer.name.given_name + " " + details.payer.name.surname,
                             email: details.payer.email_address,
                             address: addressLine + " " + address.admin_area_2 + ", " + address.admin_area_1 + " " + address.postal_code,
-                            size: "TEMP",
-                            medium: "TEMP",
-                            price: details.purchase_units[0].amount.value,
+                            size: size.name,
+                            medium: medium.name,
+                            price: "$" + details.purchase_units[0].amount.value,
                             image: "TEMP",
                             status: "New",
                             created_at: new Date()
