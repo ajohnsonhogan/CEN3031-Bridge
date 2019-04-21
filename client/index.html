@@ -87,10 +87,9 @@
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
                   Size: {{ selectedSize.name }}<br>
-                  Total Price: {{ totalPrice() }} <!-- <br>
+                  Total Price: $<span id="price">{{ totalPrice() }}</span><!-- <br>
                   STRING: {{ strPrice() }} -->
                 </div>
-    
               
   <script
     src="https://www.paypal.com/sdk/js?client-id=AXL16BxjOBqm3td170Hupz2AizuH4BLvVDsXOVmMCwqgodsvO0E-f41VpqmxGce1V4Dc7zQxqnx525FG">
@@ -103,6 +102,9 @@
   </script>
   
  <script>
+	 console.log(document.getElementById("price").innerHTML);
+	 var poop = document.getElementById("price").innerHTML;
+	 
   paypal.Buttons({
     createOrder: function(data, actions) {
       return actions.order.create({
@@ -110,7 +112,7 @@
 			
           amount: {
             currency_code: 'USD',
-            value: '0.01'
+            value: poop
           }
         }]
       });
