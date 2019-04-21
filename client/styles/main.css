@@ -396,14 +396,7 @@ label
     display: block;
     height:90%;
     margin-top: -190px;
-    z-index: 2;
-}
-
-.order-image a:hover {
-    overflow: visible;
-}
-.background-image:hover {
-    overflow: hidden;
+    transition: .15s;
 }
 
 .order-image img:hover {
