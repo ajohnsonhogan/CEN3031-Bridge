@@ -87,7 +87,7 @@
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
                   Size: {{ selectedSize.name }}<br>
-                  Total Price: {{ totalPrice() }} <!-- <br>
+                  Total Price: ${{ totalPrice() }} <!-- <br>
                   STRING: {{ strPrice() }} -->
                 </div>
     
@@ -116,7 +116,7 @@
                     },
                     onApprove: function(data, actions) {
                       return actions.order.capture().then(function(details) {
-                        alert('Transaction completed by ' + details.payer.name.given_name + " " + details.payer.name.surname);
+                        
                         console.log(details);
                         var address = details.purchase_units[0].shipping.address;
                         var addressLine = address.address_line_1;
@@ -143,6 +143,7 @@
                         });
                       });
                       console.log('Made It');
+                      alert('Transaction completed by ' + details.payer.name.given_name + " " + details.payer.name.surname);
                     }
                   }).render('#paypal-button-container');
                 </script>
