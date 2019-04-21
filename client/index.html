@@ -87,7 +87,7 @@
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
                   Size: {{ selectedSize.name }}<br>
-                  Total Price: $<span id="price">{{ totalPrice() }}</span>		
+                  Total Price: $<span id="price">{{ totalPrice() }}</span><br>&nbsp;
 
                   <script		
                    src="https://www.paypal.com/sdk/js?client-id=Ad4hr1QZHPw37Efl612qdiPmjBQCeyoFl6a9YqAt3wTM2DHOT-fDsCPXm14qrrXgBGHhnaDrqe93iFEP">		
@@ -123,7 +123,7 @@
                              'content-type': 'application/json'		
                            },		
                            body: JSON.stringify({		
-                             name: details.payer.name.given_name + " " + details.payer.name.surname,		
+                             name: details.purchase_units[0].shipping.name.full_name,		
                              email: details.payer.email_address,		
                              address: addressLine + " " + address.admin_area_2 + ", " + address.admin_area_1 + " " + address.postal_code,		
                              size: size.name,		
@@ -143,6 +143,14 @@
                  
                  </div>
 
+              </div>
+            </div>
+          </div>
+
+        </div>
+    
+      </div>
+    </div>
     
     <!-- javascript files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
