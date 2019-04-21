@@ -85,12 +85,12 @@
             <div class="panel panel-default panelheight">
               <div class="panel-heading text-center">Step 4: Finish Your Order</div>
               <div class="panel-body text-center">
-                <div class="well" style="margin:20px" onclick="console.log('hella');document.getElementById('form').submit()">
+                <div class="well" style="margin:20px">
                   <span>You have selected:<br></span>
                   Medium: {{ selectedMedium.name }}<br>
                   Size: {{ selectedSize.name }}<br>
                   Total Price: $<span id="price">{{ totalPrice() }}</span><br>&nbsp;
-
+		      </div>
                   <script		
                    src="https://www.paypal.com/sdk/js?client-id=Ad4hr1QZHPw37Efl612qdiPmjBQCeyoFl6a9YqAt3wTM2DHOT-fDsCPXm14qrrXgBGHhnaDrqe93iFEP">		
                  </script>		
