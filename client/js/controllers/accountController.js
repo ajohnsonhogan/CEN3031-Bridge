@@ -15,7 +15,9 @@ angular.module('accounts').controller('accountController', ['$scope', 'Accounts'
 
         Accounts.login(info).then(data => {
             if(data){
-            window.location.href = "/profile.html";
+            console.log('Data', data);
+            console.log(window.location.href);
+            window.location.href = "/";
             localStorage.setItem('email', $scope.email);
             }
         }).catch(err => {

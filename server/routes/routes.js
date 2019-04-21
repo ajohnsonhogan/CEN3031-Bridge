@@ -7,6 +7,7 @@ function routes(app) {
   app.post('/ipn', IPNController.index);
   
   // ...
+  
 }
 
 export default routes;

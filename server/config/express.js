@@ -77,6 +77,7 @@ module.exports.init = function() {
 
   app.post('/auth', function(req, res, next) {
     // Your logic and then redirect
+    console.log(req);
     res.redirect(__dirname + '../../client/profile.html');
   });
 
@@ -91,6 +92,12 @@ module.exports.init = function() {
   app.post('/signin', function(req, res) {
     console.log(req.body);
     res.json({ success: true });
+});
+app.get('/logout', function (req, res) {
+    console.log("trying to logout....")
+    req.session.destroy()
+    req.logout()
+    res.redirect('/account.html');
 });
   return app;
 };  

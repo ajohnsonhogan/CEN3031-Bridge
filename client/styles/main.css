@@ -245,6 +245,10 @@ body {
     text-align: center;
 }
 
+.admin-only {
+    display: none;
+}
+
 .btn {
     /* border-radius: 4px; */
     border: none;

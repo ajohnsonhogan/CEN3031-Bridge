@@ -145,3 +145,16 @@ function ValidateSingleInput(oInput) {
     }
   }
 } 
+
+
+$('document').ready(function() {
+  setTimeout(function() {
+    if(localStorage.getItem('email') == 'admin@gmail.com') {
+      $('.admin-only').show();
+    }
+    else {
+      console.log('Hiding');
+        $('.admin-only').hide();
+    }
+  }, 1000);  
+});
