@@ -44,6 +44,10 @@ var imageSelected = false;
 var sizeSelected = false;
 var mediumSelected = false;
 
+var medium = "";
+var size = "";
+var totalPrice = 0;
+
 $('input[name="picMedium"]').click(function(f) {
   if(f.target.value === 'Matte') {
     mediumPrice = 1;
