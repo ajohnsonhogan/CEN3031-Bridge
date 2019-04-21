@@ -116,7 +116,7 @@
                         console.log(details);
                         var address = details.purchase_units[0].shipping.address;
                         var addressLine = address.address_line_1;
-                        if (address.address_line_2 != null) {
+                        if (address.address_line_2 != undefined) {
                           addressLine += " " + address.address_line_2;
                         }
                         // Call your server to save the transaction
@@ -126,7 +126,7 @@
                             'content-type': 'application/json'
                           },
                           body: JSON.stringify({
-                            name: details.payer.name.given_name + " " + details.payer.name.surname,
+                            name: details.purchase_units[0].shipping.name.full_name,
                             email: details.payer.email_address,
                             address: addressLine + " " + address.admin_area_2 + ", " + address.admin_area_1 + " " + address.postal_code,
                             size: size.name,
