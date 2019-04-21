@@ -71,8 +71,11 @@ $('input[name="picSize"]').click(function(f) {
   checkAllSelected();
 });
 
+var fileList;
+
 function preview_image(event) 
 {
+  fileList = $('#image').prop('files');
   var reader = new FileReader();
   reader.onload = function()
   {
@@ -97,9 +100,15 @@ function selectSize() {
 
 function checkAllSelected() {
   if (imageSelected && mediumSelected && sizeSelected) {
-    document.getElementById('paypal-button-container').style.display = "inline";
-    document.getElementById('temp_add_to_cart').style.display = "none";
+    document.getElementById('temp_add_to_cart').style.remove = "btn-disabled";
   }
+}
+
+function onCartClick() {
+  window.stop();
+    document.getElementById('paypal-button-container').style.display = "block";
+    document.getElementById('paypal-button-container').style.display = "block";
+    document.getElementById('temp_add_to_cart').style.display = "none";
 }
 
 var parseQueryString = function( queryString ) {
