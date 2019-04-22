@@ -9,25 +9,26 @@ var path = require('path'),
     ordersRouter = require('../routes/orders.server.routes'),
     mediumsRouter = require('../routes/mediums.server.routes'),
     sizesRouter = require('../routes/sizes.server.routes'),
-    //ipnRouter = require('../routes/routes'),
     ordersRouter = require('../routes/orders.server.routes'),
     accountRouter = require('../routes/account.server.routes');
     const passport = require('passport');
     const session = require('express-session');
     const flash = require('connect-flash');
-      
-module.exports.init = function() {
-  //connect to database
-  mongoose.connect(config.db.uri);
-  
- 
+    const jwt = require('jsonwebtoken');
+
   //initialize app
   var app = express();
   require("../controllers/account.server.controller");
 
   //enable request logging for development debugging
   app.use(morgan('dev'));
-  
+    
+
+   
+      
+module.exports.init = function() {
+  //connect to database
+  mongoose.connect(config.db.uri);
 
   // view engine setup
   app.engine('html', cons.swig)
@@ -76,10 +77,18 @@ module.exports.init = function() {
   });
 
   app.post('/auth', function(req, res, next) {
-    // Your logic and then redirect
+    // Your logic and then redirect''/
     console.log(req);
     res.redirect(__dirname + '../../client/profile.html');
   });
+
+  app.use((req, res, next)=>{
+    res.locals.success_msg = req.flash('succes_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+  })
+  
 
   /**TODO 
   Go to homepage for all routes not specified */ 
@@ -89,15 +98,22 @@ module.exports.init = function() {
     //return response.redirect('/');
     //next();
   //});
-  app.post('/signin', function(req, res) {
-    console.log(req.body);
-    res.json({ success: true });
-});
-app.get('/logout', function (req, res) {
-    console.log("trying to logout....")
-    req.session.destroy()
-    req.logout()
-    res.redirect('/account.html');
-});
+//   app.post('/signin', function(req, res) {
+//     console.log(req.body);
+//     res.json({ success: true });
+// });
+app.get('/signin', function(req, res) {
+  passport.authenticate('local', function(req, res, next){
+    if(err){return next(err);
+    }
+    if(!user){return res.redirect('/signin');
+  }
+  })
+})
+
+
   return app;
-};  
+
+};
+
+

@@ -1,18 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
 const passport = require('passport');
+// const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 
-router.get('/logout', (req, res, next) => {
-    req.logout();
-    res.redirect('/');
-});
+// Dashboard
 
 router.get('/profile', (req, res, next) => {
     //res.sendFile(path.resolve(__dirname + '/../../client/register.html'));
     res.render('profile');
+});
+
+router.get('/signup', (req, res, next) => {
+    res.sendFile('signup');
+});
+
+router.get('/signin', (req, res, next) => {
+    console.log("signin");
+
+    res.sendFile('/../../client/profile.html');
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
@@ -21,14 +28,9 @@ router.post('/signup', passport.authenticate('local-signup', {
     passReqToCallback: false
 }));
 
-router.get('/signin', (req, res, next) => {
-    console.log("signin");
-
-    res.sendFile('/../../client/profile.html');
-});
 
 router.post('/signin', passport.authenticate('local-signin', {
-    // successRedirect: 'profile',
+    successRedirect: '/',
     failureRedirect: '/signin',
     passReqToCallback: true
     }), (req, res) => {
@@ -44,17 +46,6 @@ router.post('/signin', passport.authenticate('local-signin', {
         }
     }
 );
-
-router.get('/signup', (req, res, next) => {
-    res.sendFile('signup');
-});
-
-function isAuthenticated(req, res, next) {
-    if(req.isAuthenticated()) {
-      return next();
-   }
-    res.redirect('/');
-};
 
 
 module.exports = router;

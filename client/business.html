@@ -17,7 +17,13 @@
 		<!-- scaling for mobile devices -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Owner Dashboard - Petree's Prints</title>	
+		<title>Owner Dashboard - Petree's Prints</title>
+		
+		<script>
+			if(localStorage.getItem("email") != "admin@gmail.com"){
+				window.location.href = "./index.html";
+			}
+		</script>
 
     </head>
     <body ng-app="petreeApp" class='ng-scope'>

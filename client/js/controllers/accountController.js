@@ -14,16 +14,16 @@ angular.module('accounts').controller('accountController', ['$scope', 'Accounts'
         // window.location.href = "profile.html"
 
         Accounts.login(info).then(data => {
-            if(data){
+            if(data.status === 200){
             console.log('Data', data);
-            console.log(window.location.href);
             window.location.href = "/";
             localStorage.setItem('email', $scope.email);
+            }else{
+                console.log('Data', data); 
             }
         }).catch(err => {
-            if(err){
+                // window.confirm("Invalid username or password");
                 console.log("Invalid username or password");
-            }
         })
     };
 
@@ -42,6 +42,7 @@ angular.module('accounts').controller('accountController', ['$scope', 'Accounts'
             }
         }).catch(err => {
             if(err){
+                window.confirm("Invalid username or password");
                 console.log("Invalid username or password");
             }
         })

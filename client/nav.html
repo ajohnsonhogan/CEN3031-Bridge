@@ -21,13 +21,12 @@
                     <input type="submit" name="submit" value="Cart" style="font-weight:400; font-size:18px">
                 </form></a></li>
                 <li class="dropdown">
-                    <a href="account.html"><form target="_self" action="./account" method="GET">
+                    <a>
                         Account
-                        </form>
                     </a>
                     <div class="dropdown-content">
 
-                        <a href="/logout">Logout</a>
+                        <button id="logout">Logout</button>
                     </div>
                 </li>
             </ul>
@@ -35,4 +34,11 @@
     </div>
 </nav>
 <div class="background">
+    <script>
+        const logout = document.getElementById("logout");
+        logout.addEventListener("click", () => {
+            localStorage.clear();
+            window.location.href = "./account.html";
+        })
+        </script>
 </div>
