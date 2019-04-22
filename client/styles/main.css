@@ -437,7 +437,7 @@ label
     padding-right: 20px;
 }
 
-.modalID {
+.modalID{
 	background-color: #fefefe;
 	 font-size:24px;
 	border:none;
@@ -449,6 +449,13 @@ label
 }
 .modalID:focus{
     outline: none;
+}
+
+.modalText{
+	background-color: #fefefe;
+	font-size:24px;
+	color: hsla(0, 0%, 20%, 0.7);
+	font-family: 'Open Sans', sans-serif;
 }
 
 .modalSubmit{

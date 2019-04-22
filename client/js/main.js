@@ -45,6 +45,18 @@ window.onclick = function(event) {
     document.getElementById('adminModal').style.display = "none";
   }
 }
+window.onclick = function(event) {
+  if (event.target == document.getElementById('successModal') || event.target == document.getElementById('success') || event.target == document.getElementsByClassName('modalText')[0]) {
+    document.getElementById('successModal').style.display = "none";
+	location.reload();
+  }
+}
+
+
+
+
+
+
 
 $('#sizeText').hide();
 
