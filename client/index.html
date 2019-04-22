@@ -136,7 +136,8 @@
                      onApprove: function(data, actions) {   
                        return actions.order.capture().then(function(details) {    
                             
-                         console.log(details);    
+                         console.log(details);   
+						document.getElementById('successModal').style.display = 'block';
                          var address = details.purchase_units[0].shipping.address;    
                          var addressLine = address.address_line_1;    
                          if (address.address_line_2 != null) {    
@@ -163,6 +164,7 @@
                        });    
                        console.log('Made It');    
                        alert('Transaction completed by ' + details.payer.name.given_name + " " + details.payer.name.surname);   
+					   
                      }    
                    }).render('#paypal-button-container');   
                  </script>
