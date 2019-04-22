@@ -41,15 +41,15 @@ if(xmlHttp.responseText == "Admin"){ window.location.href = "/business.html"}els
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == document.getElementById('adminModal')) {
-    document.getElementById('adminModal').style.display = "none";
-  }
+  
 }
 window.onclick = function(event) {
 	console.log(event.target.getAttribute("role"));
   if (event.target == document.getElementById('successModal') || event.target == document.getElementById('success') || event.target == document.getElementsByClassName('modalText')[0]) {
     document.getElementById('successModal').style.display = "none";
 	location.reload();
+  }else if (event.target == document.getElementById('adminModal')) {
+    document.getElementById('adminModal').style.display = "none";
   }else if ( event.target.getAttribute("role") == "button"){
 		document.getElementById('waitModal').style.display = 'block'
 	}
