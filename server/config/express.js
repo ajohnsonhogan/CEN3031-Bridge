@@ -64,8 +64,6 @@ module.exports.init = function() {
 	  } 
   });
      app.use(express.static('client'));
- 
- 
 
 
   /**TODO 

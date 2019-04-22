@@ -37,11 +37,11 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav navlinks">
 						<!--remove these two for non-admin-->
-						<li><a href="./">Order</a></li>
-						<li><a href="about.html">About</a></li>
+						<!-- <li><a href="./">Order</a></li>
+						<li><a href="about.html">About</a></li> -->
 						<li><a ng-href="business.html">Order Dashboard</a></li>
 						<li><a ng-href="adminpage.html">Order Options</a></li>
-						
+            <li><a><button id="logout" style="background: none; border: none; margin: 0; padding: 0; cursor: pointer;">Logout</button><a></li>
 					</ul>
 				</div>
 			</div>
@@ -141,5 +141,16 @@
         <script src="js/factories/mediumFactory.js"></script>
         <script src="js/controllers/mediumController.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            const logout = document.getElementById("logout");
+            const delete_cookie = () => {
+              document.cookie = name + '=;expies=Thu, 01 Jan 1970 00:00:01 GMT;';
+            };
+            logout.addEventListener("click", () => {
+              delete_cookie('adminID');
+              window.location.href = "./index.html";
+      
+            })
+          </script>
     </body>
 </html>
