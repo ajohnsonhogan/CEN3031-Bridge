@@ -55,7 +55,7 @@ window.onclick = function(event) {
 	}
 }
 
-document.getElementById('iframe2').onload= function(){document.getElementById('successModal').style.display = 'block'; document.getElementById('waitModal').style.display = 'none'};
+document.getElementById('iframe2').onload= function(){ document.getElementById('waitModal').style.display = 'none'};
 
 
 
