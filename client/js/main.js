@@ -1,9 +1,9 @@
-$.get("nav.html", function(data){
-        $("#nav-placeholder").replaceWith(data);
-      });
+$.get("nav.html", function (data) {
+  $("#nav-placeholder").replaceWith(data);
+});
 /* Other buttons toggle hide and show jquery */
-$('input[name="picSize"]').click(function(e) {
-  if(e.target.value === 'Other') {
+$('input[name="picSize"]').click(function (e) {
+  if (e.target.value === 'Other') {
     $('#sizeText').show();
   } else {
     $('#sizeText').hide();
@@ -13,57 +13,62 @@ $('input[name="picSize"]').click(function(e) {
 
 
 
-var  setCookie = function(cname, cvalue, exdays) {
+var setCookie = function (cname, cvalue, exdays) {
   var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires="+ d.toUTCString();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-var adminLogin = function() {
-	var adminID = document.getElementById("inputID").value;
-	if (adminID != "" && adminID != null) {
-	  setCookie("adminID", adminID);
-	}
-	return true;
+var adminLogin = function () {
+  var adminID = document.getElementById("inputID").value;
+  if (adminID != "" && adminID != null) {
+    setCookie("adminID", adminID);
+    localStorage.setItem("adminID", adminID);
+  }
+  return true;
 }
 
 // When the user clicks on the button, open the modal 
-var showLogin = function() {
-	var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", '/admin?'+ document.cookie, false ); // false for synchronous request
-	console.log('/admin?'+ document.cookie);	
+var showLogin = function () {
+  const adminID = localStorage.getItem('adminID');
+  
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", '/admin?' + document.cookie, false); // false for synchronous request
+    console.log('/admin?' + document.cookie);
     xmlHttp.send(null);
-	console.log(xmlHttp.responseText);
-if(xmlHttp.responseText == "Admin"){ window.location.href = "/business.html"}else{
-	document.getElementById('adminModal').style.display = "block";
-	document.getElementsByClassName('modalID')[0].focus();}
+    console.log(xmlHttp.responseText);
+    if (xmlHttp.responseText == "Admin") { window.location.href = "/business.html" } else {
+      document.getElementById('adminModal').style.display = "block";
+      document.getElementsByClassName('modalID')[0].focus();
+    
+  }
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == document.getElementById('adminModal')) {
     document.getElementById('adminModal').style.display = "none";
   }
 }
-window.onclick = function(event) {
-	console.log(event.target.getAttribute("role"));
+window.onclick = function (event) {
+  console.log(event.target.getAttribute("role"));
   if (event.target == document.getElementById('successModal') || event.target == document.getElementById('success') || event.target == document.getElementsByClassName('modalText')[0]) {
     document.getElementById('successModal').style.display = "none";
-	location.reload();
-  }else if ( event.target.getAttribute("role") == "button"){
-		document.getElementById('waitModal').style.display = 'block'
-	}
+    location.reload();
+  } else if (event.target.getAttribute("role") == "button") {
+    document.getElementById('waitModal').style.display = 'block'
+  }
 }
 
-document.getElementById('iframe2').onload= function(){document.getElementById('successModal').style.display = 'block'; document.getElementById('waitModal').style.display = 'none'};
+document.getElementById('iframe2').onload = function () { document.getElementById('successModal').style.display = 'block'; document.getElementById('waitModal').style.display = 'none' };
 
 
 
 
 $('#sizeText').hide();
 
-$('input[name="picMedium"]').click(function(f) {
-  if(f.target.value === 'Other') {
+$('input[name="picMedium"]').click(function (f) {
+  if (f.target.value === 'Other') {
     $('#mediumText').show();
   } else {
     $('#mediumText').hide();
@@ -82,24 +87,24 @@ var medium = "";
 var size = "";
 var totalPrice = 0;
 
-$('input[name="picMedium"]').click(function(f) {
-  if(f.target.value === 'Matte') {
+$('input[name="picMedium"]').click(function (f) {
+  if (f.target.value === 'Matte') {
     mediumPrice = 1;
-  } if(f.target.value === 'Glossy') {
+  } if (f.target.value === 'Glossy') {
     mediumPrice = 2;
-  } if(f.target.value === 'Large') {
+  } if (f.target.value === 'Large') {
     mediumPrice = 3;
   } else {
     mediumPrice = mediumPrice;
   }
 });
 
-$('input[name="picSize"]').click(function(f) {
-  if(f.target.value === 'Small') {
+$('input[name="picSize"]').click(function (f) {
+  if (f.target.value === 'Small') {
     sizePrice = 1;
-  } if(f.target.value === 'Medium') {
+  } if (f.target.value === 'Medium') {
     sizePrice = 2;
-  } if(f.target.value === 'Large') {
+  } if (f.target.value === 'Large') {
     sizePrice = 3;
   } else {
     sizePrice = sizePrice;
@@ -111,19 +116,17 @@ $('input[name="picSize"]').click(function(f) {
 
 var fileList;
 
-function preview_image(event) 
-{
+function preview_image(event) {
   fileList = $('#image').prop('files');
   var reader = new FileReader();
-  reader.onload = function()
-  {
+  reader.onload = function () {
     document.getElementById('browse_button').style.marginTop = "0px";
     document.getElementById('browse_button').classList.remove("btn-primary");
     document.getElementById('browse_button').classList.add("btn-default");
     var output = document.getElementById('output_image');
     output.style.display = "inline";
     output.src = reader.result;
- }
+  }
   reader.readAsDataURL(event.target.files[0]);
   imageSelected = true;
   console.log("image selected");
@@ -144,21 +147,21 @@ function checkAllSelected() {
 
 function onCartClick() {
   window.stop();
-    document.getElementById('paypal-button-container').style.display = "block";
-    document.getElementById('paypal-button-container').style.display = "block";
-    document.getElementById('temp_add_to_cart').style.display = "none";
+  document.getElementById('paypal-button-container').style.display = "block";
+  document.getElementById('paypal-button-container').style.display = "block";
+  document.getElementById('temp_add_to_cart').style.display = "none";
 }
 
-var parseQueryString = function( queryString ) {
-    var params = {}, queries, temp, i, l;
-    // Split into key/value pairs
-    queries = queryString.split("&");
-    // Convert the array of strings into an object
-    for ( i = 0, l = queries.length; i < l; i++ ) {
-        temp = queries[i].split('=');
-        params[temp[0]] = temp[1];
-    }
-    return params;
+var parseQueryString = function (queryString) {
+  var params = {}, queries, temp, i, l;
+  // Split into key/value pairs
+  queries = queryString.split("&");
+  // Convert the array of strings into an object
+  for (i = 0, l = queries.length; i < l; i++) {
+    temp = queries[i].split('=');
+    params[temp[0]] = temp[1];
+  }
+  return params;
 };
 
 function getPrice() {
@@ -171,29 +174,29 @@ function getPrice() {
 
 
 
-$("#getPrice").click(function() {
+$("#getPrice").click(function () {
   getPrice();
 });
 
 
 
 /* popover script */
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover({ trigger: "hover" });   
+$(document).ready(function () {
+  $('[data-toggle="popover"]').popover({ trigger: "hover" });
 });
 
-var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
 function ValidateSingleInput(oInput) {
   if (oInput.type == "file") {
     var sFileName = oInput.value;
     if (sFileName.length > 0) {
       var blnValid = false;
       for (var j = 0; j < _validFileExtensions.length; j++) {
-          var sCurExtension = _validFileExtensions[j];
-          if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-              blnValid = true;
-              break;
-          }
+        var sCurExtension = _validFileExtensions[j];
+        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+          blnValid = true;
+          break;
+        }
       }
       return true;
     }

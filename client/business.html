@@ -165,7 +165,7 @@
 		<script>
 			const logout = document.getElementById("logout");
 			const delete_cookie = () => {
-				document.cookie = name + '=;expies=Thu, 01 Jan 1970 00:00:01 GMT;';
+				document.cookie = "adminID=; expires=Thu, 01 Jan 1970 00:00:01 GMT";
 			};
 			logout.addEventListener("click", () => {
 				delete_cookie('adminID');
