@@ -124,15 +124,18 @@ function selectSize() {
 
 function checkAllSelected() {
   if (imageSelected && mediumSelected && sizeSelected) {
-    document.getElementById('temp_add_to_cart').style.remove = "btn-disabled";
+    document.getElementById('temp-order-button').style.display = "none";
+    document.getElementById('proceed-to-payment').style.display = "inline";
+    document.getElementById('paypal-button-container').style.display = "none";
+    document.getElementById('paypal-button-container').style.display = "none";
   }
 }
 
 function onCartClick() {
   window.stop();
-    document.getElementById('paypal-button-container').style.display = "block";
-    document.getElementById('paypal-button-container').style.display = "block";
-    document.getElementById('temp_add_to_cart').style.display = "none";
+  document.getElementById('paypal-button-container').style.display = "block";
+  document.getElementById('paypal-button-container').style.display = "block";
+  document.getElementById('proceed-to-payment').style.display = "none";
 }
 
 var parseQueryString = function( queryString ) {
