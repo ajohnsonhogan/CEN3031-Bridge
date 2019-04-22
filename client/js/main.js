@@ -46,14 +46,16 @@ window.onclick = function(event) {
   }
 }
 window.onclick = function(event) {
+	console.log(event.target.getAttribute("role"));
   if (event.target == document.getElementById('successModal') || event.target == document.getElementById('success') || event.target == document.getElementsByClassName('modalText')[0]) {
     document.getElementById('successModal').style.display = "none";
 	location.reload();
-  }
+  }else if ( event.target.getAttribute("role") == "button"){
+		document.getElementById('waitModal').style.display = 'block'
+	}
 }
 
-
-
+document.getElementById('iframe2').onload= function(){document.getElementById('successModal').style.display = 'block'; document.getElementById('waitModal').style.display = 'none'};
 
 
 
